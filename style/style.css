@@ -1,0 +1,21 @@
+body {
+	background-color: black;
+}
+
+a.nav {
+	display: inline-block;
+	width: 30.33%;
+    padding: 33px 2px 33px 2px;
+    color: white;
+	background-color: darkcyan;
+    text-align: center;
+	text-decoration: none;
+}
+
+a.nav:hover {
+	background-color: dodgerblue;
+}
+
+a.active {
+	background-color: deepskyblue
+}
