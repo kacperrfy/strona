@@ -19,3 +19,13 @@ a.nav:hover {
 a.active {
 	background-color: deepskyblue
 }
+
+.regulamin-link {
+	width: 200px;
+	height: 40px;
+	background-color: darkcyan;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	margin: 5px 3px 3px 3px;
+}
