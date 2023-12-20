@@ -20,7 +20,7 @@ a.active {
 	background-color: deepskyblue
 }
 
-.regulamin-link {
+a.regulamin-link {
 	background-color: darkcyan;
 	color: white;
 	text-decoration: none;
