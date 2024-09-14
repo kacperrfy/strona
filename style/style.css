@@ -1,32 +1,217 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+#ip {
+	color: white;
+	text-align: center;
+	position: relative;
+	margin-top: -90px;
+}
+
+.copyip {
+	background-color: rgb(121, 121, 121);
+	border: solid 2px rgb(82, 82, 82);
+	transition: 250ms;
+	border-radius: 15px;
+	padding: 10px 70px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	opacity: 70%;
+}
+.copyip p {
+	color: white;
+	margin-top: -35px;
+	margin-bottom: 8px;
+	font-size: 20px;
+	margin-left: 30%;
+	width: max-content;
+}
+
+.copyip:hover {
+	filter: brightness(90%);
+	cursor: pointer;
+	transition: 250ms;
+}
+.copyico {
+	margin-top: -5px;
+	width: 50px;
+	display: block;
+	margin-left: -60px
+}
+#centerip {
+	width: max-content;
+	margin: auto;
+	margin-top: 200px;
+}
+
 body {
 	background-color: black;
 }
 
-a.nav {
+.tlo {
+	background-image: url(https://i.imgur.com/fhDe9UW.jpeg);
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 100%;
+	filter: brightness(50%);
+}
+
+.discord {
+	display: flex;
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	width: 4.1%; 
+	display: flex;
+	align-items: center;
+	transition: 250ms;
+}
+.discord:hover {
+	filter: brightness(80%);
+	cursor: pointer;
+	transition: 250ms;
+}
+
+#nawigacja {
+	width: 100%;
 	display: inline-block;
-	width: 30.33%;
-    padding: 33px 2px 33px 2px;
-    color: white;
-	background-color: darkcyan;
-    text-align: center;
+	font-weight: bold;
+}
+a.nawigacja {
+	color: white;
+	text-align: center;
 	text-decoration: none;
-}
-
-a.nav:hover {
-	background-color: dodgerblue;
-}
-
-a.active {
-	background-color: deepskyblue
-}
-
-.regulamin-link {
+	margin: 0;
+	padding: 33px 20px;
+	float: right;
 	width: 15%;
-	background-color: darkcyan;
+	position: relative;
+}
+a.nawigacja:hover {
+	filter: brightness(80%)
+}
+
+.home {
+	width: 6.3%;
+	margin: 0;
+	top: 0px;
+	margin-left: 0.5%;
+	transition: 250ms;
+}
+
+.home:hover {
+	transition: 250ms;
+	filter: brightness(80%);
+}
+#rangi {
+	width: 100%;
+	position: relative;
+	top: 500px;
+}
+.buycard {
+	width: 208px;
+	height: 300px;
+	background-color: rgb(74, 74, 74);
+	border: 5px solid #6c6c6c;
+	display: inline-block;
+	border-radius: 30px;
+}
+
+.buycardbtn {
+	position: absolute;
 	color: white;
 	text-decoration: none;
-	font-size: 30px;
-	margin: 5px 3px 3px 0px;
-	display: block;
 	text-align: center;
+	bottom: 20px;
+	padding: 7px 30px;
+	background-color: rgb(5, 208, 2);
+	border-radius: 15px;
+	margin: 0 50px;
+}
+
+#rangitype {
+	top: 200px;
+	border-bottom: 1px solid greenyellow;
+	color: white;
+	text-align: center;
+	width: max-content;
+	margin: 20px auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background-color: black
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: linear-gradient(#d003f9, #d003f9); 
+	border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #ab03f9;
+  }
+
+/* 404 */
+
+#error .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+	width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#error .glowna:hover {
+	filter: brightness(80%);
+	transition: 400ms;
+}
+
+#error a.glowna {
+	background-color: rgb(22, 95, 221);
+	padding: 26px 36px;
+	width: 450px;
+	border-radius: 15px;
+	transition: 400ms;
+	color: white;
+	text-decoration: none;
+	font-size: 140%;
+	font-family: monospace;
+	margin-top: 20px;
+	display: inline-block;
+}
+
+#error #tlo {
+	background: url(https://i.imgur.com/iLRD4Vp.png);
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	width: 100%;
+}
+
+#error #errorh1 {
+	font-size: 180px;
+	margin-top: -50px;
+	color: white;
+	font-family: system-ui
 }
