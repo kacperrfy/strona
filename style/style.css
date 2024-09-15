@@ -215,3 +215,42 @@ a.nawigacja:hover {
 	color: white;
 	font-family: system-ui
 }
+
+#regulamin {
+	color: #ff7aff;
+	display: block;
+	margin: 250px 10% 0px 10%;
+	position: absolute;
+}
+
+#regulamin hr {
+	border: 0.5px solid #ff7aff;
+	margin: 5px 3px 20px 3px;
+}
+
+#regulamin *:hover {
+	border-left: 3px solid #6c6c6c;
+	transition: 250ms;
+}
+
+#regulamin * {
+	border-left: black 3px solid;
+}
+
+#regulamin-center {
+	text-align: center;
+}
+
+#regulamin-h2 {
+	margin: 5px auto -5px auto;
+}
+
+#regulamin-title-hr-2 {
+	margin: 0 auto;
+	width: 45%;
+}
+
+#regulamin-title-hr-1 {
+	margin: 0 auto;
+	width: 43%;
+}
