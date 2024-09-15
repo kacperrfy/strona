@@ -1,0 +1,67 @@
+# Regulamin serwera Discord
+
+## 1. Postanowienia ogólne
+1.1. Niniejszy regulamin określa zasady korzystania z serwera Minisrv.  
+1.2. Każdy użytkownik korzystający z serwera zobowiązany jest do przestrzegania postanowień niniejszego regulaminu.  
+1.3. Administracja serwera zastrzega sobie prawo do wprowadzania zmian w regulaminie w dowolnym momencie, bez konieczności informowania użytkowników.
+
+## 2. Zasady korzystania z serwera
+2.1. Użytkownik zobowiązany jest do zachowania kultury osobistej i szacunku wobec innych graczy oraz administracji.  
+2.2. Zabronione jest używanie jakichkolwiek cheatów, modów czy innych narzędzi dających nieuczciwą przewagę nad innymi graczami.  
+2.3. Spamowanie oraz reklamowanie innych serwerów i stron internetowych jest surowo zabronione.  
+2.4. Wszelkie formy oszustw, wyłudzeń oraz kradzieży kont są zabronione i będą surowo karane.
+
+## 3. Ochrona danych osobowych
+3.1. Użytkownik zobowiązuje się do nieudostępniania swoich danych osobowych innym graczom.  
+3.2. Administracja zobowiązuje się do ochrony danych osobowych użytkowników zgodnie z obowiązującymi przepisami prawa.
+
+## 4. Sankcje i kary
+4.1. Za naruszenie regulaminu użytkownik może otrzymać ostrzeżenie, tymczasowego bana, stałego bana lub inne kary w zależności od stopnia naruszenia.  
+4.2. Decyzje administracji są ostateczne i niepodważalne. Użytkownik ma jednak prawo do odwołania się od decyzji poprzez odpowiedni formularz dostępny na stronie serwera.
+
+## 5. Odpowiedzialność
+5.1. Administracja nie ponosi odpowiedzialności za szkody powstałe w wyniku działania serwera, w tym za utratę danych.  
+5.2. Użytkownik korzysta z serwera na własne ryzyko i odpowiedzialność.
+
+## 6. Postanowienia końcowe
+6.1. W sprawach nieuregulowanych niniejszym regulaminem zastosowanie mają przepisy obowiązującego prawa.  
+6.2. Regulamin wchodzi w życie z dniem jego publikacji na stronie serwera.
+
+Dziękujemy za przestrzeganie regulaminu i życzymy miłej gry!
+
+---
+
+# Regulamin serwera Minecraft
+
+## 1. Postanowienia ogólne
+1.1. Niniejszy regulamin określa zasady korzystania z serwera MC.  
+1.2. Każdy użytkownik korzystający z serwera zobowiązany jest do przestrzegania postanowień niniejszego regulaminu.  
+1.3. Administracja serwera zastrzega sobie prawo do wprowadzania zmian w regulaminie w dowolnym momencie, bez konieczności informowania użytkowników.
+
+## 2. Rejestracja i konto gracza
+2.1. Każdy gracz zobowiązany jest do rejestracji konta na serwerze.  
+2.2. Gracz jest odpowiedzialny za bezpieczeństwo swojego konta i nie powinien udostępniać swoich danych logowania innym osobom.  
+2.3. Używanie wielu kont przez jednego użytkownika jest zabronione.
+
+## 3. Zasady zachowania
+3.1. Użytkownik zobowiązany jest do zachowania kultury osobistej i szacunku wobec innych graczy oraz administracji.  
+3.2. Wulgaryzmy, obraźliwe komentarze oraz wszelkie formy nękania są zabronione.  
+3.3. Spamowanie, floodowanie oraz reklamowanie innych serwerów i stron internetowych jest surowo zabronione.
+
+## 4. Zabronione działania
+4.1. Używanie cheatów oraz innych nieautoryzowanych narzędzi dających przewagę w grze jest zabronione.  
+4.2. Griefing, kradzież oraz niszczenie mienia innych graczy jest surowo zabronione.  
+4.3. Podszywanie się pod innych graczy lub administrację jest zabronione.
+
+## 5. Ochrona danych osobowych
+5.1. Użytkownik zobowiązuje się do nieudostępniania swoich danych osobowych innym graczom.  
+5.2. Administracja zobowiązuje się do ochrony danych osobowych użytkowników zgodnie z obowiązującymi przepisami prawa.
+
+## 6. Sankcje i kary
+6.1. Za naruszenie regulaminu użytkownik może otrzymać ostrzeżenie, tymczasowego bana, stałego bana lub inne kary w zależności od stopnia naruszenia.  
+6.2. Decyzje administracji są ostateczne i niepodważalne. Użytkownik ma jednak prawo do odwołania się od decyzji poprzez odpowiedni formularz.
+
+## 7. Zakaz promowania
+7.1. Zakazuje się promowania na prywatnych wiadomościach (PV) innym graczom tego serwera.
+
+Dziękujemy za przestrzeganie regulaminu i życzymy miłej gry!
