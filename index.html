@@ -1,48 +1,97 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<link rel="icon" href="img/minisrv.png">
-		<meta charset="utf-8">
-		<meta name="viewport"; content="width=device-width, initial-scale=1.0">
-		<title>WOMIMC: Strona główna</title>
-		<link href="/style/style.css" rel="stylesheet">
-		<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
-        <link rel="icon" href="img/favicon.ico">
-		<script>
-			function copyip() {
-				const text = "minisrv.womimc.pl";
-				const textArea = document.createElement("textarea");
-				textArea.value = text;
-				document.body.appendChild(textArea);
-				textArea.select();
-				document.execCommand("copy");
-				document.body.removeChild(textArea);
-			}
-		</script>
-	</head>
-	<body>
-		<div class="tlo"></div>
-		<div id="wszystko">
-			<nav id="nawigacja">
-				<a class="home" href="/"><img class="home" src="img/minisrv.png"></a>
-				<a class="nawigacja" href="regulamin">Regulamin</a>
-				<a class="nawigacja" href="survival">Survival</a>
-				<a class="nawigacja" href="/">Strona główna</a>
-			</nav>
-			<div class="media">
-				<a target="_blank" href="https://dc.womimc.pl/minisrv"><img src="img/discord.png" class="discord"></a>
-				<a target="_blank" href="https://www.tiktok.com/@unknown.darkstar"><img src="img/tiktok.png" class="tiktok"></a>
-				<a target="_blank" href="https://www.youtube.com/@kamilowski-s4y"><img src="img/youtube.png" class="youtube"></a>
-			</div>
-			<div id="rangi">
-			</div>
-			<div id="centerip">
-				<h1 id="ip">MiniSrv<br/>Najlepszy serwer w Polsce</h1>
-				<button class="copyip" onclick="copyip()">
-					<img class="copyico" src="img/copy-icon.png">
-					<p>Skopiuj ip</p>
-				</button>
-			</div>
-		</div>
-	</body>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QDCraft - Polski Serwer Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <img src="logo.png" alt="QDCraft Logo">
+                <span>QDCraft</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Strona Główna</a></li>
+                <li><a href="#rules">Regulamin</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="https://discord.gg/twojlink" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="hero">
+            <h1>Witaj na QDCraft</h1>
+            <p class="ip">qdcraft.womimc.pl</p>
+            <button onclick="copyIP()">Skopiuj IP</button>
+        </div>
+    </header>
+
+    <section id="rules">
+        <div class="container">
+            <h2>Regulamin Serwera</h2>
+            <div class="rules-content">
+                <h3>1. Podstawowe zasady</h3>
+                <ul>
+                    <li>Zachowuj się kulturalnie wobec innych graczy</li>
+                    <li>Zakaz używania cheatów i modyfikacji dających przewagę</li>
+                    <li>Zakaz reklamowania innych serwerów</li>
+                    <li>Respektuj decyzje administracji</li>
+                </ul>
+
+                <h3>2. Chat</h3>
+                <ul>
+                    <li>Zakaz spamowania i floodowania</li>
+                    <li>Zakaz obrażania innych graczy</li>
+                    <li>Zakaz nadużywania CAPS LOCK</li>
+                    <li>Zakaz rozpowszechniania danych osobowych</li>
+                </ul>
+
+                <h3>3. Rozgrywka</h3>
+                <ul>
+                    <li>Zakaz griefowania i niszczenia cudzych budowli</li>
+                    <li>Zakaz wykorzystywania błędów gry</li>
+                    <li>Zakaz kradzieży itemów innych graczy</li>
+                    <li>Szanuj własność innych graczy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p>Dołącz do naszego Discorda</p>
+                    <a href="https://discord.gg/twojlink" target="_blank" class="discord-btn">Discord</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>kontakt@qdcraft.pl</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QDCraft. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyIP() {
+            navigator.clipboard.writeText('qdcraft.womimc.pl');
+            alert('IP zostało skopiowane do schowka!');
+        }
+    </script>
+</body>
 </html>
