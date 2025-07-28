@@ -3,95 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QDCraft - Polski Serwer Minecraft</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>QDCraft - Minecraft Server</title>
+    <meta name="description" content="QDCraft - Wyjątkowy serwer Minecraft oferujący niesamowite przygody, przyjazną społeczność i unikalne funkcje.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Minecraft&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://unpkg.com/@popperjs/core@2" defer></script>
+    <script src="https://unpkg.com/tippy.js@6" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <div class="logo">
-                <img src="logo.png" alt="QDCraft Logo">
-                <span>QDCraft</span>
+    <!-- Particles Background -->
+    <div id="particles-js" class="particles-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="QDCraft Logo" height="40">
+            </a>
+            
+            <div class="nav-links hidden md:flex gap-8">
+                <a href="#about">O Serwerze</a>
+                <a href="#features">Funkcje</a>
+                <a href="sklep.html">Sklep</a>
+                <a href="regulamin.html">Regulamin</a>
+                <a href="#contact">Kontakt</a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Strona Główna</a></li>
-                <li><a href="#rules">Regulamin</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="https://discord.gg/twojlink" target="_blank">Discord</a></li>
-            </ul>
+            
+            <button class="menu-toggle md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
-
-    <header id="home">
-        <div class="hero">
-            <h1>Witaj na QDCraft</h1>
-            <p class="ip">qdcraft.womimc.pl</p>
-            <button onclick="copyIP()">Skopiuj IP</button>
-        </div>
-    </header>
-
-    <section id="rules">
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#about">O Serwerze</a>
+        <a href="#features">Funkcje</a>
+        <a href="sklep.html">Sklep</a>
+        <a href="regulamin.html">Regulamin</a>
+        <a href="#contact">Kontakt</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h2>Regulamin Serwera</h2>
-            <div class="rules-content">
-                <h3>1. Podstawowe zasady</h3>
-                <ul>
-                    <li>Zachowuj się kulturalnie wobec innych graczy</li>
-                    <li>Zakaz używania cheatów i modyfikacji dających przewagę</li>
-                    <li>Zakaz reklamowania innych serwerów</li>
-                    <li>Respektuj decyzje administracji</li>
-                </ul>
-
-                <h3>2. Chat</h3>
-                <ul>
-                    <li>Zakaz spamowania i floodowania</li>
-                    <li>Zakaz obrażania innych graczy</li>
-                    <li>Zakaz nadużywania CAPS LOCK</li>
-                    <li>Zakaz rozpowszechniania danych osobowych</li>
-                </ul>
-
-                <h3>3. Rozgrywka</h3>
-                <ul>
-                    <li>Zakaz griefowania i niszczenia cudzych budowli</li>
-                    <li>Zakaz wykorzystywania błędów gry</li>
-                    <li>Zakaz kradzieży itemów innych graczy</li>
-                    <li>Szanuj własność innych graczy</li>
-                </ul>
+            <h1 class="animate-slide-up">Witaj w QDCraft</h1>
+            <p class="animate-slide-up delay-1">Dołącz do naszej społeczności i rozpocznij swoją przygodę!</p>
+            
+            <div class="server-info animate-slide-up delay-2">
+                <div class="server-status">
+                    <span class="status-indicator"></span>
+                    <span class="player-count">Loading...</span>
+                </div>
+                
+                <div class="ip-address">
+                    <button class="copy-btn" data-ip="play.qdcraft.pl">
+                        play.qdcraft.pl
+                        <i class="fas fa-copy ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="cta-buttons flex justify-center gap-4 animate-slide-up delay-3">
+                <a href="#about" class="btn btn-primary">Dowiedz się więcej</a>
+                <a href="sklep.html" class="btn btn-outline">Wspomóż nas</a>
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <!-- About Section -->
+    <section id="about" class="section">
         <div class="container">
-            <h2>Kontakt</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fab fa-discord"></i>
-                    <h3>Discord</h3>
-                    <p>Dołącz do naszego Discorda</p>
-                    <a href="https://discord.gg/twojlink" target="_blank" class="discord-btn">Discord</a>
+            <h2 class="text-center" data-aos="fade-up">O Serwerze</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">
+                QDCraft to wyjątkowy serwer Minecraft, który oferuje niezapomniane przygody i przyjazną atmosferę.
+                Nasza społeczność to gracze, którzy cenią sobie dobrą zabawę i wzajemny szacunek.
+            </p>
+            
+            <div class="stats-section grid grid-3 mt-8">
+                <div class="stat-card card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-users text-4xl text-primary"></i>
+                    <h3 class="stat-number" data-target="1000">0</h3>
+                    <p>Zarejestrowanych graczy</p>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>kontakt@qdcraft.pl</p>
+                
+                <div class="stat-card card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-clock text-4xl text-primary"></i>
+                    <h3 class="stat-number" data-target="365">0</h3>
+                    <p>Dni online</p>
+                </div>
+                
+                <div class="stat-card card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-star text-4xl text-primary"></i>
+                    <h3 class="stat-number" data-target="50">0</h3>
+                    <p>Unikatowych funkcji</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer>
+    
+    <!-- Features Section -->
+    <section id="features" class="section bg-gradient">
         <div class="container">
-            <p>&copy; 2025 QDCraft. Wszystkie prawa zastrzeżone.</p>
+            <h2 class="text-center" data-aos="fade-up">Nasze Funkcje</h2>
+            
+            <div class="cards-grid mt-8">
+                <div class="feature-card card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-gem text-2xl text-primary"></i>
+                    <h3>Rangi VIP</h3>
+                    <p>Specjalne przywileje i bonusy dla wspierających</p>
+                </div>
+                
+                <div class="feature-card card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-magic text-2xl text-primary"></i>
+                    <h3>Własne Pluginy</h3>
+                    <p>Unikalne mechaniki i systemy rozgrywki</p>
+                </div>
+                
+                <div class="feature-card card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                    <h3>Ochrona Terenu</h3>
+                    <p>Zabezpiecz swoje budowle przed griefingiem</p>
+                </div>
+                
+                <div class="feature-card card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-coins text-2xl text-primary"></i>
+                    <h3>Ekonomia</h3>
+                    <p>Rozbudowany system handlu i ekonomii</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Discord Section -->
+    <section class="section">
+        <div class="container">
+            <div class="discord-card card" data-aos="fade-up">
+                <h2>Dołącz do naszego Discorda!</h2>
+                <p>Bądź na bieżąco z wszystkimi wydarzeniami i poznaj naszą społeczność</p>
+                
+                <div class="discord-stats flex items-center gap-4 mt-4">
+                    <i class="fab fa-discord text-4xl"></i>
+                    <span class="discord-member-count">...</span> online
+                </div>
+                
+                <a href="https://discord.gg/qdcraft" target="_blank" rel="noopener noreferrer" 
+                   class="btn discord-btn mt-4">
+                    <i class="fab fa-discord mr-2"></i>
+                    Dołącz teraz
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="text-center" data-aos="fade-up">Kontakt</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">
+                Masz pytania? Skontaktuj się z nami!
+            </p>
+            
+            <form class="contact-form card mt-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="form-group">
+                    <label for="name">Nazwa użytkownika</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-full">Wyślij wiadomość</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4 gap-8">
+                <div class="footer-section">
+                    <img src="assets/logo.png" alt="QDCraft Logo" height="40" class="mb-4">
+                    <p>Najlepszy serwer Minecraft w Polsce!</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Linki</h3>
+                    <ul>
+                        <li><a href="#about">O Serwerze</a></li>
+                        <li><a href="#features">Funkcje</a></li>
+                        <li><a href="sklep.html">Sklep</a></li>
+                        <li><a href="regulamin.html">Regulamin</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul>
+                        <li><a href="mailto:kontakt@qdcraft.pl">kontakt@qdcraft.pl</a></li>
+                        <li><a href="https://discord.gg/qdcraft" target="_blank">Discord</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Social Media</h3>
+                    <div class="social-links flex gap-4">
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom text-center mt-8">
+                <p>&copy; 2023 QDCraft. Wszystkie prawa zastrzeżone.</p>
+            </div>
         </div>
     </footer>
-
-    <script>
-        function copyIP() {
-            navigator.clipboard.writeText('qdcraft.womimc.pl');
-            alert('IP zostało skopiowane do schowka!');
-        }
-    </script>
+</body>
+</html>
 </body>
 </html>
