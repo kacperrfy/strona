@@ -1,123 +1,232 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QDCRAFT - Cennik</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
-        }
-
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-            text-shadow: 0 0 5px red; /* Czerwone podświetlenie */
-        }
-
-        .price-list {
-            margin-top: 20px;
-        }
-
-        .rank {
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .rank h2 {
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .price {
-            margin: 5px 0;
-        }
-
-        .keys {
-            margin-top: 20px;
-        }
-
-        .keys h2 {
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .key {
-            margin: 5px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QDCraft.pl</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e90ff, #20b2aa);
+      color: white;
+      text-align: center;
+    }
+    header {
+      background: rgba(0,0,0,0.6);
+      padding: 15px;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: yellow;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #nickDisplay {
+      cursor: pointer;
+      color: cyan;
+      font-weight: bold;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .gold { background: linear-gradient(135deg, gold, orange); }
+    .svip { background: linear-gradient(135deg, #87cefa, #1e90ff); }
+    .mvip { background: linear-gradient(135deg, #006400, #228b22); }
+    .elita { background: linear-gradient(135deg, purple, violet); }
+    .qd { background: linear-gradient(135deg, teal, cyan); }
+    .blue { color: #0011ff; }
+    .hidden { display: none; }
+    footer {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0,0,0,0.6);
+    }
+    footer a {
+      color: #00ffff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    input {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+    }
+    button {
+      padding: 8px 15px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background: cyan;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">QDCRAFT-CENNIK</div>
-
-        <div class="price-list">
-            <div class="rank">
-                <h2>VIP</h2>
-                <div class="price">30 dni: 5 zł</div>
-                <div class="price">60 dni: 10 zł</div>
-                <div class="price">Na zawsze: 15 zł</div>
-            </div>
-
-            <div class="rank">
-                <h2>SVIP</h2>
-                <div class="price">30 dni: 10 zł</div>
-                <div class="price">60 dni: 15 zł</div>
-                <div class="price">Na zawsze: 20 zł</div>
-            </div>
-
-            <div class="rank">
-                <h2>MVIP</h2>
-                <div class="price">30 dni: 20 zł</div>
-                <div class="price">60 dni: 25 zł</div>
-                <div class="price">Na zawsze: 30 zł</div>
-            </div>
-
-            <div class="rank">
-                <h2>Elita</h2>
-                <div class="price">30 dni: 30 zł</div>
-                <div class="price">60 dni: 35 zł</div>
-                <div class="price">Na zawsze: 40 zł</div>
-            </div>
-
-            <div class="rank">
-                <h2>QD</h2>
-                <div class="price">30 dni: 40 zł</div>
-                <div class="price">60 dni: 45 zł</div>
-                <div class="price">Na zawsze: 50 zł</div>
-            </div>
-        </div>
-
-        <div class="keys">
-            <h2>Klucze</h2>
-            <div class="key">Zwykły: 2 zł</div>
-            <div class="key">Rzadki: 5 zł</div>
-            <div class="key">Epicki: 7 zł</div>
-            <div class="key">Legendarny: 10 zł</div>
-            <div class="key">QD: 15 zł</div>
-        </div>
+  <header>
+    <div>
+      IP serwera: <b>SOON</b> | Regulamin serwera: <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a>
     </div>
+    <div id="nickDisplay" onclick="showNickForm()">Wpisz swĂłj nick</div>
+  </header>
+
+  <!-- Strona gĹ‚Ăłwna -->
+  <div id="home">
+    <h1>đźŽ® Witaj na QDCraft.pl đźŽ®</h1>
+    <div class="container">
+      <div class="card" onclick="goTo('rangi')">
+        <h2 style="color: gold">Rangi</h2>
+        <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyÄ‡ ofertÄ™.</p>
+      </div>
+      <div class="card" onclick="goTo('klucze')">
+        <h2 class="blue">Klucze</h2>
+        <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyÄ‡ ofertÄ™.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sekcja nicku -->
+  <div id="nickForm" class="hidden">
+    <h2>Podaj swĂłj nick Minecraft</h2>
+    <input type="text" id="nickInput" placeholder="TwĂłj nick">
+    <br>
+    <button onclick="saveNick()">Zapisz</button>
+  </div>
+
+  <!-- Sekcja Rangi -->
+  <div id="rangi" class="hidden">
+    <h1>Rangi</h1>
+    <div class="container">
+      <div class="card gold">
+        <h2>VIP</h2>
+        <img src="https://via.placeholder.com/150" alt="VIP">
+        <p>30d: 5zĹ‚<br>60d: 10zĹ‚<br>Na zawsze: 15zĹ‚</p>
+        <p>Unikalny prefix: <span style="color:yellow">VIP [<span class="nick"></span>]</span></p>
+        <p>DostÄ™p do: <b>/kit vip</b></p>
+      </div>
+
+      <div class="card svip">
+        <h2>SVIP</h2>
+        <img src="https://via.placeholder.com/150" alt="SVIP">
+        <p>30d: 10zĹ‚<br>60d: 15zĹ‚<br>Na zawsze: 20zĹ‚</p>
+        <p>Unikalny prefix: <span style="color:yellow">SVIP [<span class="nick"></span>]</span></p>
+        <p>DostÄ™p do: <b>/kit svip</b></p>
+      </div>
+
+      <div class="card mvip">
+        <h2>MVIP</h2>
+        <img src="https://via.placeholder.com/150" alt="MVIP">
+        <p>30d: 20zĹ‚<br>60d: 25zĹ‚<br>Na zawsze: 30zĹ‚</p>
+        <p>Unikalny prefix: <span style="color:yellow">MVIP [<span class="nick"></span>]</span></p>
+        <p>DostÄ™p do: <b>/kit mvip</b></p>
+      </div>
+
+      <div class="card elita">
+        <h2>ELITA</h2>
+        <img src="https://via.placeholder.com/150" alt="ELITA">
+        <p>30d: 30zĹ‚<br>60d: 35zĹ‚<br>Na zawsze: 40zĹ‚</p>
+        <p>Unikalny prefix: <span style="color:yellow">ELITA [<span class="nick"></span>]</span></p>
+        <p>DostÄ™p do: <b>/kit elita</b></p>
+      </div>
+
+      <div class="card qd">
+        <h2>QD</h2>
+        <img src="https://via.placeholder.com/150" alt="QD">
+        <p>30d: 40zĹ‚<br>60d: 45zĹ‚<br>Na zawsze: 50zĹ‚</p>
+        <p>Unikalny prefix: <span style="color:yellow">QD [<span class="nick"></span>]</span></p>
+        <p>DostÄ™p do: <b>/kit qd</b></p>
+      </div>
+    </div>
+    <button onclick="goHome()">â¬… PowrĂłt</button>
+  </div>
+
+  <!-- Sekcja Klucze -->
+  <div id="klucze" class="hidden">
+    <h1>Klucze</h1>
+    <div class="container">
+      <div class="card"><h2>ZwykĹ‚y</h2><p>2zĹ‚</p></div>
+      <div class="card"><h2>Rzadki</h2><p>5zĹ‚</p></div>
+      <div class="card"><h2>Epicki</h2><p>7zĹ‚</p></div>
+      <div class="card"><h2>Legendarny</h2><p>10zĹ‚</p></div>
+      <div class="card"><h2>QD</h2><p>15zĹ‚</p></div>
+    </div>
+    <button onclick="goHome()">â¬… PowrĂłt</button>
+  </div>
+
+  <footer>
+    Produkty zakupisz na: <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank">dc.gg/qdcraft.pl</a>
+  </footer>
+
+  <script>
+    let currentNick = localStorage.getItem('mcNick') || "";
+    updateNickDisplay();
+
+    function showNickForm(){
+      hideAll();
+      document.getElementById('nickForm').classList.remove('hidden');
+    }
+    function saveNick(){
+      const val = document.getElementById('nickInput').value.trim();
+      if(val){
+        currentNick = val;
+        localStorage.setItem('mcNick', val);
+        updateNickDisplay();
+        goHome();
+      }
+    }
+    function updateNickDisplay(){
+      const disp = document.getElementById('nickDisplay');
+      if(currentNick){
+        disp.textContent = currentNick;
+        document.querySelectorAll('.nick').forEach(el => el.textContent = currentNick);
+      } else {
+        disp.textContent = "Wpisz swĂłj nick";
+      }
+    }
+    function hideAll(){
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById('nickForm').classList.add('hidden');
+      document.getElementById('rangi').classList.add('hidden');
+      document.getElementById('klucze').classList.add('hidden');
+    }
+    function goHome(){
+      hideAll();
+      document.getElementById('home').classList.remove('hidden');
+    }
+    function goTo(section){
+      if(!currentNick){
+        showNickForm();
+        return;
+      }
+      hideAll();
+      document.getElementById(section).classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
+
 
 
