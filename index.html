@@ -1,104 +1,123 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>QDCraf - Sklep</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #eee;
-    margin: 0;
-    padding: 0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QDCRAFT - Cennik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-  header {
-    background-color: #1a1a1a;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 0 15px #0ff;
-  }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
 
-  header h1 {
-    font-size: 2.5em;
-    color: #0ff;
-    text-shadow: 0 0 10px #0ff;
-    margin: 0;
-  }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px red; /* Czerwone podświetlenie */
+        }
 
-  nav {
-    margin-top: 15px;
-  }
+        .price-list {
+            margin-top: 20px;
+        }
 
-  nav a {
-    color: #0ff;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    position: relative;
-    transition: color 0.3s ease;
-  }
+        .rank {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
 
-  nav a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #0ff;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-  }
+        .rank h2 {
+            color: #555;
+            margin-bottom: 5px;
+        }
 
-  nav a:hover {
-    color: #fff;
-  }
+        .price {
+            margin: 5px 0;
+        }
 
-  nav a:hover::after {
-    width: 100%;
-  }
+        .keys {
+            margin-top: 20px;
+        }
 
-  .btn-primary {
-    display: inline-block;
-    background-color: #0ff;
-    color: #121212;
-    padding: 10px 25px;
-    margin: 30px auto;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 0 15px #0ff;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
+        .keys h2 {
+            color: #555;
+            margin-bottom: 5px;
+        }
 
-  .btn-primary:hover {
-    background-color: #00ffffcc;
-    box-shadow: 0 0 30px #0ff;
-  }
-
-  main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-</style>
+        .key {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-<header>
-  <h1>QDCraf</h1>
-  <nav>
-    <a href="#">Strona główna</a>
-    <a href="#">Produkty</a>
-    <a href="#">Kontakt</a>
-  </nav>
-</header>
+    <div class="container">
+        <div class="logo">QDCRAFT-CENNIK</div>
 
-<main>
-  <button class="btn-primary">Kup teraz</button>
-</main>
+        <div class="price-list">
+            <div class="rank">
+                <h2>VIP</h2>
+                <div class="price">30 dni: 5 zł</div>
+                <div class="price">60 dni: 10 zł</div>
+                <div class="price">Na zawsze: 15 zł</div>
+            </div>
+
+            <div class="rank">
+                <h2>SVIP</h2>
+                <div class="price">30 dni: 10 zł</div>
+                <div class="price">60 dni: 15 zł</div>
+                <div class="price">Na zawsze: 20 zł</div>
+            </div>
+
+            <div class="rank">
+                <h2>MVIP</h2>
+                <div class="price">30 dni: 20 zł</div>
+                <div class="price">60 dni: 25 zł</div>
+                <div class="price">Na zawsze: 30 zł</div>
+            </div>
+
+            <div class="rank">
+                <h2>Elita</h2>
+                <div class="price">30 dni: 30 zł</div>
+                <div class="price">60 dni: 35 zł</div>
+                <div class="price">Na zawsze: 40 zł</div>
+            </div>
+
+            <div class="rank">
+                <h2>QD</h2>
+                <div class="price">30 dni: 40 zł</div>
+                <div class="price">60 dni: 45 zł</div>
+                <div class="price">Na zawsze: 50 zł</div>
+            </div>
+        </div>
+
+        <div class="keys">
+            <h2>Klucze</h2>
+            <div class="key">Zwykły: 2 zł</div>
+            <div class="key">Rzadki: 5 zł</div>
+            <div class="key">Epicki: 7 zł</div>
+            <div class="key">Legendarny: 10 zł</div>
+            <div class="key">QD: 15 zł</div>
+        </div>
+    </div>
 </body>
 </html>
+
 
