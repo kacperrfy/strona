@@ -90,28 +90,28 @@
     <div>
       IP serwera: <b>SOON</b> | Regulamin serwera: <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a>
     </div>
-    <div id="nickDisplay" onclick="showNickForm()">Wpisz swĂłj nick</div>
+    <div id="nickDisplay" onclick="showNickForm()">Wpisz swój nick</div>
   </header>
 
-  <!-- Strona gĹ‚Ăłwna -->
+  <!-- Strona główna -->
   <div id="home">
-    <h1>đźŽ® Witaj na QDCraft.pl đźŽ®</h1>
+    <h1>✨ Witaj na QDCraft.pl ✨</h1>
     <div class="container">
       <div class="card" onclick="goTo('rangi')">
         <h2 style="color: gold">Rangi</h2>
-        <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyÄ‡ ofertÄ™.</p>
+        <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
       </div>
       <div class="card" onclick="goTo('klucze')">
         <h2 class="blue">Klucze</h2>
-        <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyÄ‡ ofertÄ™.</p>
+        <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
       </div>
     </div>
   </div>
 
   <!-- Sekcja nicku -->
   <div id="nickForm" class="hidden">
-    <h2>Podaj swĂłj nick Minecraft</h2>
-    <input type="text" id="nickInput" placeholder="TwĂłj nick">
+    <h2>Podaj swój nick Minecraft</h2>
+    <input type="text" id="nickInput" placeholder="Twój nick">
     <br>
     <button onclick="saveNick()">Zapisz</button>
   </div>
@@ -123,57 +123,57 @@
       <div class="card gold">
         <h2>VIP</h2>
         <img src="https://via.placeholder.com/150" alt="VIP">
-        <p>30d: 5zĹ‚<br>60d: 10zĹ‚<br>Na zawsze: 15zĹ‚</p>
+        <p>30d: 5zł<br>60d: 10zł<br>Na zawsze: 15zł</p>
         <p>Unikalny prefix: <span style="color:yellow">VIP [<span class="nick"></span>]</span></p>
-        <p>DostÄ™p do: <b>/kit vip</b></p>
+        <p>Dostęp do: <b>/kit vip</b></p>
       </div>
 
       <div class="card svip">
         <h2>SVIP</h2>
         <img src="https://via.placeholder.com/150" alt="SVIP">
-        <p>30d: 10zĹ‚<br>60d: 15zĹ‚<br>Na zawsze: 20zĹ‚</p>
+        <p>30d: 10zł<br>60d: 15zł<br>Na zawsze: 20zł</p>
         <p>Unikalny prefix: <span style="color:yellow">SVIP [<span class="nick"></span>]</span></p>
-        <p>DostÄ™p do: <b>/kit svip</b></p>
+        <p>Dostęp do: <b>/kit svip</b></p>
       </div>
 
       <div class="card mvip">
         <h2>MVIP</h2>
         <img src="https://via.placeholder.com/150" alt="MVIP">
-        <p>30d: 20zĹ‚<br>60d: 25zĹ‚<br>Na zawsze: 30zĹ‚</p>
+        <p>30d: 20zł<br>60d: 25zł<br>Na zawsze: 30zł</p>
         <p>Unikalny prefix: <span style="color:yellow">MVIP [<span class="nick"></span>]</span></p>
-        <p>DostÄ™p do: <b>/kit mvip</b></p>
+        <p>Dostęp do: <b>/kit mvip</b></p>
       </div>
 
       <div class="card elita">
         <h2>ELITA</h2>
         <img src="https://via.placeholder.com/150" alt="ELITA">
-        <p>30d: 30zĹ‚<br>60d: 35zĹ‚<br>Na zawsze: 40zĹ‚</p>
+        <p>30d: 30zł<br>60d: 35zł<br>Na zawsze: 40zł</p>
         <p>Unikalny prefix: <span style="color:yellow">ELITA [<span class="nick"></span>]</span></p>
-        <p>DostÄ™p do: <b>/kit elita</b></p>
+        <p>Dostęp do: <b>/kit elita</b></p>
       </div>
 
       <div class="card qd">
         <h2>QD</h2>
         <img src="https://via.placeholder.com/150" alt="QD">
-        <p>30d: 40zĹ‚<br>60d: 45zĹ‚<br>Na zawsze: 50zĹ‚</p>
+        <p>30d: 40zł<br>60d: 45zł<br>Na zawsze: 50zł</p>
         <p>Unikalny prefix: <span style="color:yellow">QD [<span class="nick"></span>]</span></p>
-        <p>DostÄ™p do: <b>/kit qd</b></p>
+        <p>Dostęp do: <b>/kit qd</b></p>
       </div>
     </div>
-    <button onclick="goHome()">â¬… PowrĂłt</button>
+    <button onclick="goHome()">⬅ Powrót</button>
   </div>
 
   <!-- Sekcja Klucze -->
   <div id="klucze" class="hidden">
     <h1>Klucze</h1>
     <div class="container">
-      <div class="card"><h2>ZwykĹ‚y</h2><p>2zĹ‚</p></div>
-      <div class="card"><h2>Rzadki</h2><p>5zĹ‚</p></div>
-      <div class="card"><h2>Epicki</h2><p>7zĹ‚</p></div>
-      <div class="card"><h2>Legendarny</h2><p>10zĹ‚</p></div>
-      <div class="card"><h2>QD</h2><p>15zĹ‚</p></div>
+      <div class="card"><h2>Zwykły</h2><p>2zł</p></div>
+      <div class="card"><h2>Rzadki</h2><p>5zł</p></div>
+      <div class="card"><h2>Epicki</h2><p>7zł</p></div>
+      <div class="card"><h2>Legendarny</h2><p>10zł</p></div>
+      <div class="card"><h2>QD</h2><p>15zł</p></div>
     </div>
-    <button onclick="goHome()">â¬… PowrĂłt</button>
+    <button onclick="goHome()">⬅ Powrót</button>
   </div>
 
   <footer>
@@ -203,7 +203,7 @@
         disp.textContent = currentNick;
         document.querySelectorAll('.nick').forEach(el => el.textContent = currentNick);
       } else {
-        disp.textContent = "Wpisz swĂłj nick";
+        disp.textContent = "Wpisz swój nick";
       }
     }
     function hideAll(){
@@ -227,6 +227,7 @@
   </script>
 </body>
 </html>
+
 
 
 
