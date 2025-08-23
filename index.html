@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QDCraft.pl</title>
   <style>
     body {
@@ -13,7 +13,7 @@
       text-align: center;
     }
     header {
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       padding: 15px;
       font-size: 18px;
       display: flex;
@@ -40,7 +40,7 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s;
     }
     .card img {
@@ -48,20 +48,22 @@
       border-radius: 10px;
       margin-bottom: 10px;
     }
-    .card:hover {
-      transform: scale(1.05);
-    }
+    .card:hover { transform: scale(1.05); }
+
+    /* Tła kart */
     .gold { background: linear-gradient(135deg, gold, orange); }
     .svip { background: linear-gradient(135deg, #87cefa, #1e90ff); }
     .mvip { background: linear-gradient(135deg, #006400, #228b22); }
     .elita { background: linear-gradient(135deg, purple, violet); }
-    .qd { background: linear-gradient(135deg, teal, cyan); }
+    .qd   { background: linear-gradient(135deg, teal, cyan); }
+
     .blue { color: #0011ff; }
     .hidden { display: none; }
+
     footer {
       margin-top: 20px;
       padding: 15px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
     }
     footer a {
       color: #00ffff;
@@ -90,7 +92,7 @@
   <header>
     <div>
       IP serwera: <b>SOON</b> | Regulamin serwera:
-      <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a>
+      <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank" rel="noopener">kliknij</a>
     </div>
     <div id="nickDisplay" onclick="showNickForm()">Wpisz swój nick</div>
   </header>
@@ -101,11 +103,11 @@
     <div class="container">
       <div class="card" onclick="goTo('rangi')">
         <h2 style="color: gold">Rangi</h2>
-        <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
+        <p style="color: gold">Rangi serwerowe.<br />Kliknij, aby zobaczyć ofertę.</p>
       </div>
       <div class="card" onclick="goTo('klucze')">
         <h2 class="blue">Klucze</h2>
-        <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
+        <p class="blue">Klucze serwerowe.<br />Kliknij, aby zobaczyć ofertę.</p>
       </div>
     </div>
   </div>
@@ -113,7 +115,8 @@
   <!-- Sekcja nicku -->
   <div id="nickForm" class="hidden">
     <h2>Podaj swój nick Minecraft</h2>
-    <input type="text" id="nickInput" placeholder="Twój nick"> <br>
+    <input type="text" id="nickInput" placeholder="Twój nick" />
+    <br />
     <button onclick="saveNick()">Zapisz</button>
   </div>
 
@@ -121,47 +124,45 @@
   <div id="rangi" class="hidden">
     <h1>Rangi</h1>
     <div class="container">
-
       <div class="card gold">
         <h2>VIP</h2>
-        <img src="img/VIP.png" alt="VIP">
-        <p>30d: 5zł<br>60d: 10zł<br>Na zawsze: 15zł</p>
-        <p>Unikalny prefix: <span style="color:gold">VIP [<span class="nick"></span>]</span></p>
+        <img src="img/VIP.png" alt="VIP" />
+        <p>30d: 5zł<br />60d: 10zł<br />Na zawsze: 15zł</p>
+        <p>Unikalny prefix: <span style="color:#FFD700">VIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit vip</b></p>
       </div>
 
       <div class="card svip">
         <h2>SVIP</h2>
-        <img src="img/SVIP.png" alt="SVIP">
-        <p>30d: 10zł<br>60d: 15zł<br>Na zawsze: 20zł</p>
-        <p>Unikalny prefix: <span style="color:orange">SVIP [<span class="nick"></span>]</span></p>
+        <img src="img/SVIP.png" alt="SVIP" />
+        <p>30d: 10zł<br />60d: 15zł<br />Na zawsze: 20zł</p>
+        <p>Unikalny prefix: <span style="color:#FF7A00">SVIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit svip</b></p>
       </div>
 
       <div class="card mvip">
         <h2>MVIP</h2>
-        <img src="img/MVIP.png" alt="MVIP">
-        <p>30d: 20zł<br>60d: 25zł<br>Na zawsze: 30zł</p>
-        <p>Unikalny prefix: <span style="color:lime">MVIP [<span class="nick"></span>]</span></p>
+        <img src="img/MVIP.png" alt="MVIP" />
+        <p>30d: 20zł<br />60d: 25zł<br />Na zawsze: 30zł</p>
+        <p>Unikalny prefix: <span style="color:#ADFF2F">MVIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit mvip</b></p>
       </div>
 
       <div class="card elita">
         <h2>ELITA</h2>
-        <img src="img/ELITA.png" alt="ELITA">
-        <p>30d: 30zł<br>60d: 35zł<br>Na zawsze: 40zł</p>
-        <p>Unikalny prefix: <span style="color:violet">ELITA [<span class="nick"></span>]</span></p>
+        <img src="img/ELITA.png" alt="ELITA" />
+        <p>30d: 30zł<br />60d: 35zł<br />Na zawsze: 40zł</p>
+        <p>Unikalny prefix: <span style="color:#8A2BE2">ELITA [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit elita</b></p>
       </div>
 
       <div class="card qd">
         <h2>QD</h2>
-        <img src="img/QD.png" alt="QD">
-        <p>30d: 40zł<br>60d: 45zł<br>Na zawsze: 50zł</p>
-        <p>Unikalny prefix: <span style="color:cyan">QD [<span class="nick"></span>]</span></p>
+        <img src="img/QD.png" alt="QD" />
+        <p>30d: 40zł<br />60d: 45zł<br />Na zawsze: 50zł</p>
+        <p>Unikalny prefix: <span style="color:#00FFFF">QD [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit qd</b></p>
       </div>
-
     </div>
     <button onclick="goHome()">⬅ Powrót</button>
   </div>
@@ -181,61 +182,80 @@
 
   <footer>
     Produkty zakupisz na:
-    <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank">dc.gg/qdcraft.pl</a>
+    <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank" rel="noopener">dc.gg/qdcraft.pl</a>
   </footer>
 
   <script>
-    let currentNick = localStorage.getItem('mcNick') || "";
-    updateNickDisplay();
+    let currentNick = "";
+    let pendingSection = null; // jeśli użytkownik kliknął sekcję bez podanego nicku
 
-    function showNickForm(){
+    document.addEventListener('DOMContentLoaded', () => {
+      currentNick = localStorage.getItem('mcNick') || "";
+      updateNickDisplay();
+    });
+
+    function showNickForm() {
       hideAll();
       document.getElementById('nickForm').classList.remove('hidden');
+      // focus na input i przewinięcie do formularza
+      const input = document.getElementById('nickInput');
+      input.focus();
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    function saveNick(){
+    function saveNick() {
       const val = document.getElementById('nickInput').value.trim();
-      if(val){
+      if (val) {
         currentNick = val;
         localStorage.setItem('mcNick', val);
         updateNickDisplay();
-        goHome();
+        if (pendingSection) {
+          const target = pendingSection;
+          pendingSection = null;
+          goTo(target);
+        } else {
+          goHome();
+        }
       }
     }
 
-    function updateNickDisplay(){
+    function updateNickDisplay() {
       const disp = document.getElementById('nickDisplay');
-      if(currentNick){
+      if (currentNick) {
         disp.textContent = currentNick;
-        document.querySelectorAll('.nick').forEach(el => el.textContent = currentNick);
+        document.querySelectorAll('.nick').forEach(el => (el.textContent = currentNick));
       } else {
-        disp.textContent = "Wpisz swój nick";
+        disp.textContent = 'Wpisz swój nick';
       }
     }
 
-    function hideAll(){
+    function hideAll() {
       document.getElementById('home').classList.add('hidden');
       document.getElementById('nickForm').classList.add('hidden');
       document.getElementById('rangi').classList.add('hidden');
       document.getElementById('klucze').classList.add('hidden');
     }
 
-    function goHome(){
+    function goHome() {
       hideAll();
       document.getElementById('home').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function goTo(section){
-      if(!currentNick){
+    function goTo(section) {
+      if (!currentNick) {
+        pendingSection = section; // zapamiętaj dokąd chcesz przejść
         showNickForm();
         return;
       }
       hideAll();
       document.getElementById(section).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
 </html>
+
 
 
 
