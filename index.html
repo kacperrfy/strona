@@ -46,7 +46,7 @@
     .card img {
       max-width: 100%;
       border-radius: 10px;
-      margin-bottom: 10px; /* Dodane, aby logo nie przylegało do tekstu */
+      margin-bottom: 10px;
     }
     .card:hover {
       transform: scale(1.05);
@@ -89,7 +89,8 @@
 <body>
   <header>
     <div>
-      IP serwera: <b>SOON</b> | Regulamin serwera: <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a>
+      IP serwera: <b>SOON</b> | Regulamin serwera:
+      <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a>
     </div>
     <div id="nickDisplay" onclick="showNickForm()">Wpisz swój nick</div>
   </header>
@@ -112,8 +113,7 @@
   <!-- Sekcja nicku -->
   <div id="nickForm" class="hidden">
     <h2>Podaj swój nick Minecraft</h2>
-    <input type="text" id="nickInput" placeholder="Twój nick">
-    <br>
+    <input type="text" id="nickInput" placeholder="Twój nick"> <br>
     <button onclick="saveNick()">Zapisz</button>
   </div>
 
@@ -121,6 +121,7 @@
   <div id="rangi" class="hidden">
     <h1>Rangi</h1>
     <div class="container">
+
       <div class="card gold">
         <h2>VIP</h2>
         <img src="img/VIP.png" alt="VIP">
@@ -141,7 +142,7 @@
         <h2>MVIP</h2>
         <img src="img/MVIP.png" alt="MVIP">
         <p>30d: 20zł<br>60d: 25zł<br>Na zawsze: 30zł</p>
-        <p>Unikalny prefix: <span style="color:yellow">MVIP [<span class="nick"></span>]</span></p>
+        <p>Unikalny prefix: <span style="color:lime">MVIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit mvip</b></p>
       </div>
 
@@ -149,7 +150,7 @@
         <h2>ELITA</h2>
         <img src="img/ELITA.png" alt="ELITA">
         <p>30d: 30zł<br>60d: 35zł<br>Na zawsze: 40zł</p>
-        <p>Unikalny prefix: <span style="color:yellow">ELITA [<span class="nick"></span>]</span></p>
+        <p>Unikalny prefix: <span style="color:violet">ELITA [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit elita</b></p>
       </div>
 
@@ -157,9 +158,10 @@
         <h2>QD</h2>
         <img src="img/QD.png" alt="QD">
         <p>30d: 40zł<br>60d: 45zł<br>Na zawsze: 50zł</p>
-        <p>Unikalny prefix: <span style="color:yellow">QD [<span class="nick"></span>]</span></p>
+        <p>Unikalny prefix: <span style="color:cyan">QD [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit qd</b></p>
       </div>
+
     </div>
     <button onclick="goHome()">⬅ Powrót</button>
   </div>
@@ -178,7 +180,8 @@
   </div>
 
   <footer>
-    Produkty zakupisz na: <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank">dc.gg/qdcraft.pl</a>
+    Produkty zakupisz na:
+    <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank">dc.gg/qdcraft.pl</a>
   </footer>
 
   <script>
@@ -189,6 +192,7 @@
       hideAll();
       document.getElementById('nickForm').classList.remove('hidden');
     }
+
     function saveNick(){
       const val = document.getElementById('nickInput').value.trim();
       if(val){
@@ -198,6 +202,7 @@
         goHome();
       }
     }
+
     function updateNickDisplay(){
       const disp = document.getElementById('nickDisplay');
       if(currentNick){
@@ -207,16 +212,19 @@
         disp.textContent = "Wpisz swój nick";
       }
     }
+
     function hideAll(){
       document.getElementById('home').classList.add('hidden');
       document.getElementById('nickForm').classList.add('hidden');
       document.getElementById('rangi').classList.add('hidden');
       document.getElementById('klucze').classList.add('hidden');
     }
+
     function goHome(){
       hideAll();
       document.getElementById('home').classList.remove('hidden');
     }
+
     function goTo(section){
       if(!currentNick){
         showNickForm();
@@ -228,6 +236,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 
