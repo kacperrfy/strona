@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QDCraft.pl</title>
   <style>
-    /* 🔥 ANIMOWANE TŁO */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -16,13 +15,11 @@
       text-align: center;
       min-height: 100vh;
     }
-
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
     header {
       background: rgba(0,0,0,0.6);
       padding: 15px;
@@ -32,33 +29,25 @@
       align-items: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
-
     header a {
       color: #00ffff;
       text-decoration: none;
       font-weight: bold;
       text-shadow: 0 0 8px cyan;
     }
-
     #nickDisplay {
       cursor: pointer;
       color: #00e6e6;
       font-weight: bold;
       text-shadow: 0 0 10px cyan, 0 0 20px cyan;
     }
-
-    h1, h2 {
-      text-shadow: 0 0 12px rgba(0,255,255,0.8), 0 0 24px rgba(0,255,255,0.5);
-    }
-
-    /* 🔥 KARTY */
+    h1, h2 { text-shadow: 0 0 12px rgba(0,255,255,0.8), 0 0 24px rgba(0,255,255,0.5); }
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       padding: 40px;
     }
-
     .card {
       background: rgba(0, 0, 0, 0.6);
       border-radius: 15px;
@@ -66,57 +55,21 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
       transition: transform 0.2s, box-shadow 0.2s;
       backdrop-filter: blur(6px);
+      cursor: pointer;
     }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
-    }
-
-    .card img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    /* 🔥 PREFIXY NEONOWE */
-    .prefix {
-      font-weight: bold;
-      text-shadow: 0 0 8px currentColor, 0 0 16px currentColor, 0 0 32px currentColor;
-    }
-
-    /* UNIKALNE KOLORY RANG */
+    .card:hover { transform: scale(1.05); box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
+    .card img { max-width: 100px; border-radius: 10px; margin-bottom: 10px; }
+    .prefix { font-weight: bold; text-shadow: 0 0 8px currentColor, 0 0 16px currentColor, 0 0 32px currentColor; }
     .gold { background: linear-gradient(135deg, #FFD700, #FFA500); }
     .svip { background: linear-gradient(135deg, #87cefa, #1e90ff); }
     .mvip { background: linear-gradient(135deg, #006400, #228b22); }
     .elita { background: linear-gradient(135deg, #8A2BE2, #DA70D6); }
     .qd { background: linear-gradient(135deg, #008080, #00ced1); }
-
     .blue { color: #00e6ff; }
     .hidden { display: none; }
-
-    footer {
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(0,0,0,0.6);
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.8);
-    }
-
-    footer a {
-      color: #00ffff;
-      font-weight: bold;
-      text-decoration: none;
-      text-shadow: 0 0 8px cyan, 0 0 16px cyan;
-    }
-
-    input {
-      padding: 8px;
-      border-radius: 5px;
-      border: none;
-      margin-top: 10px;
-      outline: none;
-    }
-
+    footer { margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.6); box-shadow: 0 -2px 8px rgba(0,0,0,0.8); }
+    footer a { color: #00ffff; font-weight: bold; text-decoration: none; text-shadow: 0 0 8px cyan, 0 0 16px cyan; }
+    input { padding: 8px; border-radius: 5px; border: none; margin-top: 10px; outline: none; }
     button {
       padding: 8px 15px;
       margin-top: 10px;
@@ -128,11 +81,9 @@
       cursor: pointer;
       transition: background 0.3s, box-shadow 0.3s;
     }
-
-    button:hover {
-      background: #00cccc;
-      box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-    }
+    button:hover { background: #00cccc; box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+    .key-card img { max-width: 80px; margin-bottom: 10px; }
+    .card p { margin: 5px 0; }
   </style>
 </head>
 <body>
@@ -144,7 +95,6 @@
     <div id="nickDisplay" onclick="showNickForm()">Wpisz swój nick</div>
   </header>
 
-  <!-- Strona główna -->
   <div id="home">
     <h1>✨ Witaj na QDCraft.pl ✨</h1>
     <div class="container">
@@ -159,7 +109,6 @@
     </div>
   </div>
 
-  <!-- Sekcja nicku -->
   <div id="nickForm" class="hidden">
     <h2>Podaj swój nick Minecraft</h2>
     <input type="text" id="nickInput" placeholder="Twój nick" autofocus>
@@ -167,58 +116,81 @@
     <button onclick="saveNick()">Zapisz</button>
   </div>
 
-  <!-- Sekcja Rangi -->
   <div id="rangi" class="hidden">
     <h1>Rangi</h1>
     <div class="container">
       <div class="card gold">
-        <h2>VIP</h2>
         <img src="img/VIP.png" alt="VIP">
-        <p>30d: 5zł<br>60d: 10zł<br>Na zawsze: 15zł</p>
-        <p>Unikalny prefix: <span class="prefix" style="color:#FCFF00">VIP [<span class="nick"></span>]</span></p>
+        <h2>VIP</h2>
+        <p>30d: 5zł | 60d: 10zł | Na zawsze: 15zł</p>
+        <p>Prefix: <span class="prefix" style="color:#FCFF00">VIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit vip</b></p>
       </div>
       <div class="card svip">
-        <h2>SVIP</h2>
         <img src="img/SVIP.png" alt="SVIP">
-        <p>30d: 10zł<br>60d: 15zł<br>Na zawsze: 20zł</p>
-        <p>Unikalny prefix: <span class="prefix" style="color:#ABA108">SVIP [<span class="nick"></span>]</span></p>
+        <h2>SVIP</h2>
+        <p>30d: 10zł | 60d: 15zł | Na zawsze: 20zł</p>
+        <p>Prefix: <span class="prefix" style="color:#ABA108">SVIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit svip</b></p>
       </div>
       <div class="card mvip">
-        <h2>MVIP</h2>
         <img src="img/MVIP.png" alt="MVIP">
-        <p>30d: 20zł<br>60d: 25zł<br>Na zawsze: 30zł</p>
-        <p>Unikalny prefix: <span class="prefix" style="color:#004FFF">MVIP [<span class="nick"></span>]</span></p>
+        <h2>MVIP</h2>
+        <p>30d: 20zł | 60d: 25zł | Na zawsze: 30zł</p>
+        <p>Prefix: <span class="prefix" style="color:#004FFF">MVIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit mvip</b></p>
       </div>
       <div class="card elita">
-        <h2>ELITA</h2>
         <img src="img/ELITA.png" alt="ELITA">
-        <p>30d: 30zł<br>60d: 35zł<br>Na zawsze: 40zł</p>
-        <p>Unikalny prefix: <span class="prefix" style="color:#FF01EE">ELITA [<span class="nick"></span>]</span></p>
+        <h2>ELITA</h2>
+        <p>30d: 30zł | 60d: 35zł | Na zawsze: 40zł</p>
+        <p>Prefix: <span class="prefix" style="color:#FF01EE">ELITA [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit elita</b></p>
       </div>
       <div class="card qd">
-        <h2>QD</h2>
         <img src="img/QD.png" alt="QD">
-        <p>30d: 40zł<br>60d: 45zł<br>Na zawsze: 50zł</p>
-        <p>Unikalny prefix: <span class="prefix" style="color:#00FFD5">QD [<span class="nick"></span>]</span></p>
+        <h2>QD</h2>
+        <p>30d: 40zł | 60d: 45zł | Na zawsze: 50zł</p>
+        <p>Prefix: <span class="prefix" style="color:#00FFD5">QD [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit qd</b></p>
       </div>
     </div>
     <button onclick="goHome()">⬅ Powrót</button>
   </div>
 
-  <!-- Sekcja Klucze -->
   <div id="klucze" class="hidden">
     <h1>Klucze</h1>
     <div class="container">
-      <div class="card"><h2>Zwykły</h2><p>2zł</p></div>
-      <div class="card"><h2>Rzadki</h2><p>5zł</p></div>
-      <div class="card"><h2>Epicki</h2><p>7zł</p></div>
-      <div class="card"><h2>Legendarny</h2><p>10zł</p></div>
-      <div class="card"><h2>QD</h2><p>15zł</p></div>
+      <div class="card key-card">
+        <img src="img/klucz.png" alt="Zwykły">
+        <h2>Zwykły</h2>
+        <p>Klucz podstawowy do losowego skarbu w grze.</p>
+        <p>Cena: 2zł</p>
+      </div>
+      <div class="card key-card">
+        <img src="img/klucz_rzadki.png" alt="Rzadki">
+        <h2>Rzadki</h2>
+        <p>Klucz do rzadkich przedmiotów i bonusów.</p>
+        <p>Cena: 5zł</p>
+      </div>
+      <div class="card key-card">
+        <img src="img/klucz_epicki.png" alt="Epicki">
+        <h2>Epicki</h2>
+        <p>Klucz do epickich nagród i wyjątkowych itemów.</p>
+        <p>Cena: 7zł</p>
+      </div>
+      <div class="card key-card">
+        <img src="img/klucz_legendarny.png" alt="Legendarny">
+        <h2>Legendarny</h2>
+        <p>Najpotężniejszy klucz dający legendarne przedmioty.</p>
+        <p>Cena: 10zł</p>
+      </div>
+      <div class="card key-card">
+        <img src="img/klucz_qd.png" alt="QD">
+        <h2>QD</h2>
+        <p>Specjalny klucz premium serwera QDCraft.</p>
+        <p>Cena: 15zł</p>
+      </div>
     </div>
     <button onclick="goHome()">⬅ Powrót</button>
   </div>
@@ -271,16 +243,13 @@
     }
 
     function goTo(section){
-      if(!currentNick){
-        showNickForm();
-        return;
-      }
       hideAll();
       document.getElementById(section).classList.remove('hidden');
     }
   </script>
 </body>
 </html>
+
 
 
 
