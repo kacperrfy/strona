@@ -8,26 +8,29 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e90ff, #20b2aa);
+      /* Nowe, bardziej eleganckie tło */
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
       color: white;
       text-align: center;
     }
     header {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       padding: 15px;
       font-size: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      backdrop-filter: blur(5px);
     }
     header a {
-      color: yellow;
+      color: #ffdd57;
       text-decoration: none;
       font-weight: bold;
     }
     #nickDisplay {
       cursor: pointer;
-      color: cyan;
+      color: #00e0ff;
       font-weight: bold;
     }
     .container {
@@ -37,33 +40,37 @@
       padding: 40px;
     }
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
     .card img {
       max-width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-bottom: 10px;
     }
-    .card:hover { transform: scale(1.05); }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    }
 
     /* Tła kart */
-    .gold { background: linear-gradient(135deg, gold, orange); }
-    .svip { background: linear-gradient(135deg, #87cefa, #1e90ff); }
-    .mvip { background: linear-gradient(135deg, #006400, #228b22); }
-    .elita { background: linear-gradient(135deg, purple, violet); }
-    .qd   { background: linear-gradient(135deg, teal, cyan); }
+    .gold { background: linear-gradient(135deg, #ffd700, #ffb347); }
+    .svip { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+    .mvip { background: linear-gradient(135deg, #56ab2f, #a8e063); }
+    .elita { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+    .qd   { background: linear-gradient(135deg, #11998e, #38ef7d); }
 
-    .blue { color: #0011ff; }
+    .blue { color: #00bfff; }
     .hidden { display: none; }
 
     footer {
       margin-top: 20px;
       padding: 15px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
     }
     footer a {
       color: #00ffff;
@@ -71,20 +78,25 @@
       text-decoration: none;
     }
     input {
-      padding: 8px;
-      border-radius: 5px;
+      padding: 10px;
+      border-radius: 8px;
       border: none;
       margin-top: 10px;
+      width: 200px;
     }
     button {
-      padding: 8px 15px;
+      padding: 10px 18px;
       margin-top: 10px;
       border: none;
-      border-radius: 5px;
-      background: cyan;
-      color: black;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #00e0ff, #0072ff);
+      color: white;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #0072ff, #00e0ff);
     }
   </style>
 </head>
@@ -187,7 +199,7 @@
 
   <script>
     let currentNick = "";
-    let pendingSection = null; // jeśli użytkownik kliknął sekcję bez podanego nicku
+    let pendingSection = null;
 
     document.addEventListener('DOMContentLoaded', () => {
       currentNick = localStorage.getItem('mcNick') || "";
@@ -197,7 +209,6 @@
     function showNickForm() {
       hideAll();
       document.getElementById('nickForm').classList.remove('hidden');
-      // focus na input i przewinięcie do formularza
       const input = document.getElementById('nickInput');
       input.focus();
       input.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -244,7 +255,7 @@
 
     function goTo(section) {
       if (!currentNick) {
-        pendingSection = section; // zapamiętaj dokąd chcesz przejść
+        pendingSection = section;
         showNickForm();
         return;
       }
@@ -255,6 +266,7 @@
   </script>
 </body>
 </html>
+
 
 
 
