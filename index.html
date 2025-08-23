@@ -1,102 +1,118 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QDCraft.pl</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      /* Nowe, bardziej eleganckie tło */
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: white;
       text-align: center;
+      min-height: 100vh;
     }
+
     header {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0,0,0,0.6);
       padding: 15px;
       font-size: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
+
     header a {
-      color: #ffdd57;
+      color: #00ffff;
       text-decoration: none;
       font-weight: bold;
     }
+
     #nickDisplay {
       cursor: pointer;
-      color: #00e0ff;
+      color: #00e6e6;
       font-weight: bold;
+      text-shadow: 0 0 8px cyan;
     }
+
+    h1, h2 {
+      text-shadow: 0 0 10px rgba(0,255,255,0.7);
+    }
+
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       padding: 40px;
     }
+
     .card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
       padding: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(6px);
     }
+
     .card img {
       max-width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       margin-bottom: 10px;
     }
+
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.8);
     }
 
-    /* Tła kart */
-    .gold { background: linear-gradient(135deg, #ffd700, #ffb347); }
-    .svip { background: linear-gradient(135deg, #00c6ff, #0072ff); }
-    .mvip { background: linear-gradient(135deg, #56ab2f, #a8e063); }
-    .elita { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
-    .qd   { background: linear-gradient(135deg, #11998e, #38ef7d); }
+    .gold { background: linear-gradient(135deg, #FFD700, #FFA500); }
+    .svip { background: linear-gradient(135deg, #87cefa, #1e90ff); }
+    .mvip { background: linear-gradient(135deg, #006400, #228b22); }
+    .elita { background: linear-gradient(135deg, #8A2BE2, #DA70D6); }
+    .qd { background: linear-gradient(135deg, #008080, #00ced1); }
 
-    .blue { color: #00bfff; }
+    .blue { color: #0011ff; }
     .hidden { display: none; }
 
     footer {
       margin-top: 20px;
       padding: 15px;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.6);
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.8);
     }
+
     footer a {
       color: #00ffff;
       font-weight: bold;
       text-decoration: none;
+      text-shadow: 0 0 8px cyan;
     }
+
     input {
-      padding: 10px;
-      border-radius: 8px;
+      padding: 8px;
+      border-radius: 5px;
       border: none;
       margin-top: 10px;
-      width: 200px;
+      outline: none;
     }
+
     button {
-      padding: 10px 18px;
+      padding: 8px 15px;
       margin-top: 10px;
       border: none;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #00e0ff, #0072ff);
-      color: white;
+      border-radius: 5px;
+      background: #00ffff;
+      color: black;
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s;
     }
+
     button:hover {
-      background: linear-gradient(135deg, #0072ff, #00e0ff);
+      background: #00cccc;
     }
   </style>
 </head>
@@ -104,7 +120,7 @@
   <header>
     <div>
       IP serwera: <b>SOON</b> | Regulamin serwera:
-      <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank" rel="noopener">kliknij</a>
+      <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a>
     </div>
     <div id="nickDisplay" onclick="showNickForm()">Wpisz swój nick</div>
   </header>
@@ -115,11 +131,11 @@
     <div class="container">
       <div class="card" onclick="goTo('rangi')">
         <h2 style="color: gold">Rangi</h2>
-        <p style="color: gold">Rangi serwerowe.<br />Kliknij, aby zobaczyć ofertę.</p>
+        <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
       </div>
       <div class="card" onclick="goTo('klucze')">
         <h2 class="blue">Klucze</h2>
-        <p class="blue">Klucze serwerowe.<br />Kliknij, aby zobaczyć ofertę.</p>
+        <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
       </div>
     </div>
   </div>
@@ -127,8 +143,8 @@
   <!-- Sekcja nicku -->
   <div id="nickForm" class="hidden">
     <h2>Podaj swój nick Minecraft</h2>
-    <input type="text" id="nickInput" placeholder="Twój nick" />
-    <br />
+    <input type="text" id="nickInput" placeholder="Twój nick" autofocus>
+    <br>
     <button onclick="saveNick()">Zapisz</button>
   </div>
 
@@ -138,41 +154,37 @@
     <div class="container">
       <div class="card gold">
         <h2>VIP</h2>
-        <img src="img/VIP.png" alt="VIP" />
-        <p>30d: 5zł<br />60d: 10zł<br />Na zawsze: 15zł</p>
+        <img src="img/VIP.png" alt="VIP">
+        <p>30d: 5zł<br>60d: 10zł<br>Na zawsze: 15zł</p>
         <p>Unikalny prefix: <span style="color:#FFD700">VIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit vip</b></p>
       </div>
-
       <div class="card svip">
         <h2>SVIP</h2>
-        <img src="img/SVIP.png" alt="SVIP" />
-        <p>30d: 10zł<br />60d: 15zł<br />Na zawsze: 20zł</p>
-        <p>Unikalny prefix: <span style="color:#FF7A00">SVIP [<span class="nick"></span>]</span></p>
+        <img src="img/SVIP.png" alt="SVIP">
+        <p>30d: 10zł<br>60d: 15zł<br>Na zawsze: 20zł</p>
+        <p>Unikalny prefix: <span style="color:#FF8C00">SVIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit svip</b></p>
       </div>
-
       <div class="card mvip">
         <h2>MVIP</h2>
-        <img src="img/MVIP.png" alt="MVIP" />
-        <p>30d: 20zł<br />60d: 25zł<br />Na zawsze: 30zł</p>
-        <p>Unikalny prefix: <span style="color:#ADFF2F">MVIP [<span class="nick"></span>]</span></p>
+        <img src="img/MVIP.png" alt="MVIP">
+        <p>30d: 20zł<br>60d: 25zł<br>Na zawsze: 30zł</p>
+        <p>Unikalny prefix: <span style="color:#32CD32">MVIP [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit mvip</b></p>
       </div>
-
       <div class="card elita">
         <h2>ELITA</h2>
-        <img src="img/ELITA.png" alt="ELITA" />
-        <p>30d: 30zł<br />60d: 35zł<br />Na zawsze: 40zł</p>
-        <p>Unikalny prefix: <span style="color:#8A2BE2">ELITA [<span class="nick"></span>]</span></p>
+        <img src="img/ELITA.png" alt="ELITA">
+        <p>30d: 30zł<br>60d: 35zł<br>Na zawsze: 40zł</p>
+        <p>Unikalny prefix: <span style="color:#BA55D3">ELITA [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit elita</b></p>
       </div>
-
       <div class="card qd">
         <h2>QD</h2>
-        <img src="img/QD.png" alt="QD" />
-        <p>30d: 40zł<br />60d: 45zł<br />Na zawsze: 50zł</p>
-        <p>Unikalny prefix: <span style="color:#00FFFF">QD [<span class="nick"></span>]</span></p>
+        <img src="img/QD.png" alt="QD">
+        <p>30d: 40zł<br>60d: 45zł<br>Na zawsze: 50zł</p>
+        <p>Unikalny prefix: <span style="color:#00CED1">QD [<span class="nick"></span>]</span></p>
         <p>Dostęp do: <b>/kit qd</b></p>
       </div>
     </div>
@@ -194,78 +206,63 @@
 
   <footer>
     Produkty zakupisz na:
-    <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank" rel="noopener">dc.gg/qdcraft.pl</a>
+    <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank">dc.gg/qdcraft.pl</a>
   </footer>
 
   <script>
-    let currentNick = "";
-    let pendingSection = null;
+    let currentNick = localStorage.getItem('mcNick') || "";
+    updateNickDisplay();
 
-    document.addEventListener('DOMContentLoaded', () => {
-      currentNick = localStorage.getItem('mcNick') || "";
-      updateNickDisplay();
-    });
-
-    function showNickForm() {
+    function showNickForm(){
       hideAll();
       document.getElementById('nickForm').classList.remove('hidden');
-      const input = document.getElementById('nickInput');
-      input.focus();
-      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('nickInput').focus();
     }
 
-    function saveNick() {
+    function saveNick(){
       const val = document.getElementById('nickInput').value.trim();
-      if (val) {
+      if(val){
         currentNick = val;
         localStorage.setItem('mcNick', val);
         updateNickDisplay();
-        if (pendingSection) {
-          const target = pendingSection;
-          pendingSection = null;
-          goTo(target);
-        } else {
-          goHome();
-        }
+        goHome();
       }
     }
 
-    function updateNickDisplay() {
+    function updateNickDisplay(){
       const disp = document.getElementById('nickDisplay');
-      if (currentNick) {
+      if(currentNick){
         disp.textContent = currentNick;
-        document.querySelectorAll('.nick').forEach(el => (el.textContent = currentNick));
+        document.querySelectorAll('.nick').forEach(el => el.textContent = currentNick);
       } else {
-        disp.textContent = 'Wpisz swój nick';
+        disp.textContent = "Wpisz swój nick";
       }
     }
 
-    function hideAll() {
+    function hideAll(){
       document.getElementById('home').classList.add('hidden');
       document.getElementById('nickForm').classList.add('hidden');
       document.getElementById('rangi').classList.add('hidden');
       document.getElementById('klucze').classList.add('hidden');
     }
 
-    function goHome() {
+    function goHome(){
       hideAll();
       document.getElementById('home').classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function goTo(section) {
-      if (!currentNick) {
-        pendingSection = section;
+    function goTo(section){
+      if(!currentNick){
         showNickForm();
         return;
       }
       hideAll();
       document.getElementById(section).classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
 </html>
+
 
 
 
