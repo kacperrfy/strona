@@ -1,262 +1,395 @@
-<!DOCTYPE html> 
- <html lang="pl"> 
- <head> 
-     <meta charset="UTF-8"> 
-     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-     <title>QDCraft.pl</title> 
-     <style> 
-         body { 
-             margin: 0; 
-             font-family: Arial, sans-serif; 
-             background: linear-gradient(270deg, #ff00cc, #333399, #00ffcc, #ff6600); 
-             background-size: 800% 800%; 
-             animation: gradientMove 20s ease infinite; 
-             color: white; 
-             text-align: center; 
-             min-height: 100vh; 
-         } 
-         @keyframes gradientMove { 
-             0% { background-position: 0% 50%; } 
-             50% { background-position: 100% 50%; } 
-             100% { background-position: 0% 50%; } 
-         } 
-         header { 
-             background: rgba(0,0,0,0.6); 
-             padding: 15px; 
-             font-size: 18px; 
-             display: flex; 
-             justify-content: space-between; 
-             align-items: center; 
-             box-shadow: 0 2px 8px rgba(0,0,0,0.8); 
-         } 
-         header a { 
-             color: #00ffff; 
-             text-decoration: none; 
-             font-weight: bold; 
-             text-shadow: 0 0 8px cyan; 
-         } 
-         #nickDisplay { 
-             cursor: pointer; 
-             color: #00e6e6; 
-             font-weight: bold; 
-             text-shadow: 0 0 10px cyan, 0 0 20px cyan; 
-         } 
-         h1, h2 { text-shadow: 0 0 12px rgba(0,255,255,0.8), 0 0 24px rgba(0,255,255,0.5); } 
-         .container { 
-             display: grid; 
-             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-             gap: 20px; 
-             padding: 40px; 
-         } 
-         .card { 
-             background: rgba(0, 0, 0, 0.6); 
-             border-radius: 15px; 
-             padding: 20px; 
-             box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
-             transition: transform 0.2s, box-shadow 0.2s; 
-             backdrop-filter: blur(6px); 
-             cursor: pointer; 
-         } 
-         .card:hover { transform: scale(1.05); box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; } 
-         .card img { max-width: 100px; border-radius: 10px; margin-bottom: 10px; } 
-         .prefix { font-weight: bold; text-shadow: 0 0 8px currentColor, 0 0 16px currentColor, 0 0 32px currentColor; } 
-
-         /* Zmiana kolorów tła i tekstu dla kart rang */ 
-         .card.vip { background: #E91E63; color: white; } /* Różowy/fioletowy kolor zrzutu */ 
-         .card.svip { background: #2196F3; color: white; } /* Niebieski kolor zrzutu */ 
-         .card.mvip { background: #4CAF50; color: white; } /* Zielony kolor zrzutu */ 
-         .card.elita { background: #9C27B0; color: white; } /* Fioletowy kolor zrzutu */ 
-         .card.qd { background: #00BCD4; color: white; } /* Cyjanowy kolor zrzutu */ 
-
-         .gold { color: #FFD700; } 
-         .svip { color: #FF8C00; } 
-         .mvip { color: #228B22; } 
-         .elita { color: #8A2BE2; } 
-         .qd { color: #F5F5DC; } 
-         .blue { color: #00e6ff; } 
-         .hidden { display: none; } 
-         footer { margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.6); box-shadow: 0 -2px 8px rgba(0,0,0,0.8); } 
-         footer a { color: #00ffff; font-weight: bold; text-decoration: none; text-shadow: 0 0 8px cyan, 0 0 16px cyan; } 
-         input { padding: 8px; border-radius: 5px; border: none; margin-top: 10px; outline: none; } 
-         button { 
-             padding: 8px 15px; 
-             margin-top: 10px; 
-             border: none; 
-             border-radius: 5px; 
-             background: #00ffff; 
-             color: black; 
-             font-weight: bold; 
-             cursor: pointer; 
-             transition: background 0.3s, box-shadow 0.3s; 
-         } 
-         button:hover { background: #00cccc; box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; } 
-         .key-card img { max-width: 80px; margin-bottom: 10px; } 
-         .card p { margin: 5px 0; } 
-     </style> 
- </head> 
- <body> 
-     <header> 
-         <div> 
-             IP serwera: <b>SOON</b> | Regulamin serwera: 
-             <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a> 
-         </div> 
-         <div id="nickDisplay" onclick="showNickForm()">Wpisz swój nick</div> 
-     </header> 
-
-     <div id="home"> 
-         <h1>✨ Witaj na QDCraft.pl ✨</h1> 
-         <div class="container"> 
-             <div class="card" onclick="goTo('rangi')"> 
-                 <h2 style="color: gold">Rangi</h2> 
-                 <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p> 
-             </div> 
-             <div class="card" onclick="goTo('klucze')"> 
-                 <h2 class="blue">Klucze</h2> 
-                 <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p> 
-             </div> 
-         </div> 
-     </div> 
-
-     <div id="nickForm" class="hidden"> 
-         <h2>Podaj swój nick Minecraft</h2> 
-         <input type="text" id="nickInput" placeholder="Twój nick" autofocus> 
-         <br> 
-         <button onclick="saveNick()">Zapisz</button> 
-     </div> 
-
-     <div id="rangi" class="hidden"> 
-         <h1>Rangi</h1> 
-         <div class="container"> 
-             <div class="card vip"> 
-                 <img src="img/VIP.png" alt="VIP"> 
-                 <h2 class="gold">VIP</h2> 
-                 <p>30d: 5zł<br>60d: 10zł<br>Na zawsze: 15zł</p> 
-                 <p>Kliknij, aby zobaczyć info o VIP</p> 
-                 <p>Dostęp do: <b>/kit vip</b></p> 
-             </div> 
-             <div class="card svip"> 
-                 <img src="img/SVIP.png" alt="SVIP"> 
-                 <h2 class="svip">SVIP</h2> 
-                 <p>30d: 10zł<br>60d: 15zł<br>Na zawsze: 20zł</p> 
-                 <p>Kliknij, aby zobaczyć info o SVIP</p> 
-                 <p>Dostęp do: <b>/kit svip</b></p> 
-             </div> 
-             <div class="card mvip"> 
-                 <img src="img/MVIP.png" alt="MVIP"> 
-                 <h2 class="mvip">MVIP</h2> 
-                 <p>30d: 20zł<br>60d: 25zł<br>Na zawsze: 30zł</p> 
-                 <p>Kliknij, aby zobaczyć info o MVIP</p> 
-                 <p>Dostęp do: <b>/kit mvip</b></p> 
-             </div> 
-             <div class="card elita"> 
-                 <img src="img/ELITA.png" alt="ELITA"> 
-                 <h2 class="elita">ELITA</h2> 
-                 <p>30d: 30zł<br>60d: 35zł<br>Na zawsze: 40zł</p> 
-                 <p>Kliknij, aby zobaczyć info o ELITA</p> 
-                 <p>Dostęp do: <b>/kit elita</b></p> 
-             </div> 
-             <div class="card qd"> 
-                 <img src="img/QD.png" alt="QD"> 
-                 <h2 class="qd">QD</h2> 
-                 <p>30d: 40zł<br>60d: 45zł<br>Na zawsze: 50zł</p> 
-                 <p>Kliknij, aby zobaczyć info o QD</p> 
-                 <p>Dostęp do: <b>/kit qd</b></p> 
-             </div> 
-         </div> 
-         <button onclick="goHome()">⬅ Powrót</button> 
-         <p>
-            <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank" style="color: #00ffff; font-weight: bold; text-decoration: none; text-shadow: 0 0 8px cyan;">Kontakt Płatność paypal itp.</a>
-        </p>
-     </div> 
-
-     <div id="klucze" class="hidden"> 
-         <h1>Klucze</h1> 
-         <div class="container"> 
-             <div class="card key-card"> 
-                 <img src="img/klucz.png" alt="Zwykły"> 
-                 <h2>Zwykły</h2> 
-                 <p>Klucz podstawowy do losowego skarbu w grze.</p> 
-                 <p>Cena: 2zł</p> 
-             </div> 
-             <div class="card key-card"> 
-                 <img src="img/klucz_rzadki.png" alt="Rzadki"> 
-                 <h2>Rzadki</h2> 
-                 <p>Klucz do rzadkich przedmiotów i bonusów.</p> 
-                 <p>Cena: 5zł</p> 
-             </div> 
-             <div class="card key-card"> 
-                 <img src="img/klucz_epicki.png" alt="Epicki"> 
-                 <h2>Epicki</h2> 
-                 <p>Klucz do epickich nagród i wyjątkowych itemów.</p> 
-                 <p>Cena: 7zł</p> 
-             </div> 
-             <div class="card key-card"> 
-                 <img src="img/klucz_legendarny.png" alt="Legendarny"> 
-                 <h2>Legendarny</h2> 
-                 <p>Najpotężniejszy klucz dający legendarne przedmioty.</p> 
-                 <p>Cena: 10zł</p> 
-             </div> 
-             <div class="card key-card"> 
-                 <img src="img/klucz_qd.png" alt="QD"> 
-                 <h2>QD</h2> 
-                 <p>Specjalny klucz premium serwera QDCraft.</p> 
-                 <p>Cena: 15zł</p> 
-             </div> 
-         </div> 
-         <button onclick="goHome()">⬅ Powrót</button> 
-     </div> 
-
-     <footer> 
-         Produkty zakupisz na: 
-         <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank">dc.gg/qdcraft.pl</a> 
-     </footer> 
-
-     <script> 
-         let currentNick = localStorage.getItem('mcNick') || ""; 
-         updateNickDisplay(); 
-
-         function showNickForm(){ 
-             hideAll(); 
-             document.getElementById('nickForm').classList.remove('hidden'); 
-             document.getElementById('nickInput').focus(); 
-         } 
-
-         function saveNick(){ 
-             const val = document.getElementById('nickInput').value.trim(); 
-             if(val){ 
-                 currentNick = val; 
-                 localStorage.setItem('mcNick', val); 
-                 updateNickDisplay(); 
-                 goHome(); 
-             } 
-         } 
-
-         function updateNickDisplay(){ 
-             const disp = document.getElementById('nickDisplay'); 
-             if(currentNick){ 
-                 disp.textContent = currentNick; 
-                 document.querySelectorAll('.nick').forEach(el => el.textContent = currentNick); 
-             } else { 
-                 disp.textContent = "Wpisz swój nick"; 
-             } 
-         } 
-
-         function hideAll(){ 
-             document.getElementById('home').classList.add('hidden'); 
-             document.getElementById('nickForm').classList.add('hidden'); 
-             document.getElementById('rangi').classList.add('hidden'); 
-             document.getElementById('klucze').classList.add('hidden'); 
-         } 
-
-         function goHome(){ 
-             hideAll(); 
-             document.getElementById('home').classList.remove('hidden'); 
-         } 
-
-         function goTo(section){ 
-             hideAll(); 
-             document.getElementById(section).classList.remove('hidden'); 
-         } 
-     </script> 
- </body> 
+<!DOCTYPE html>
+ <html lang="pl">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>QDCraft.pl</title>
+     <style>
+         body {
+             margin: 0;
+             font-family: Arial, sans-serif;
+             background: linear-gradient(270deg, #ff00cc, #333399, #00ffcc, #ff6600);
+             background-size: 800% 800%;
+             animation: gradientMove 20s ease infinite;
+             color: white;
+             text-align: center;
+             min-height: 100vh;
+         }
+         @keyframes gradientMove {
+             0% { background-position: 0% 50%; }
+             50% { background-position: 100% 50%; }
+             100% { background-position: 0% 50%; }
+         }
+         header {
+             background: rgba(0,0,0,0.6);
+             padding: 15px;
+             font-size: 18px;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+         }
+         header a {
+             color: #00ffff;
+             text-decoration: none;
+             font-weight: bold;
+             text-shadow: 0 0 8px cyan;
+         }
+         #nickDisplay {
+             cursor: pointer;
+             color: #00e6e6;
+             font-weight: bold;
+             text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+         }
+         h1, h2 { text-shadow: 0 0 12px rgba(0,255,255,0.8), 0 0 24px rgba(0,255,255,0.5); }
+         .container {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 20px;
+             padding: 40px;
+         }
+         .card {
+             background: rgba(0, 0, 0, 0.6);
+             border-radius: 15px;
+             padding: 20px;
+             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+             transition: transform 0.2s, box-shadow 0.2s;
+             backdrop-filter: blur(6px);
+             cursor: pointer;
+         }
+         .card:hover { transform: scale(1.05); box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
+         .card img { max-width: 100px; border-radius: 10px; margin-bottom: 10px; }
+         .prefix { font-weight: bold; text-shadow: 0 0 8px currentColor, 0 0 16px currentColor, 0 0 32px currentColor; }
+ 
+         /* Zmiana kolorów tła i tekstu dla kart rang */
+         .card.vip { background: #E91E63; color: white; }
+         .card.svip { background: #2196F3; color: white; }
+         .card.mvip { background: #4CAF50; color: white; }
+         .card.elita { background: #9C27B0; color: white; }
+         .card.qd { background: #00BCD4; color: white; }
+ 
+         .gold { color: #FFD700; }
+         .svip { color: #FF8C00; }
+         .mvip { color: #228B22; }
+         .elita { color: #8A2BE2; }
+         .qd { color: #F5F5DC; }
+         .blue { color: #00e6ff; }
+         .hidden { display: none; }
+         footer { margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.6); box-shadow: 0 -2px 8px rgba(0,0,0,0.8); }
+         footer a { color: #00ffff; font-weight: bold; text-decoration: none; text-shadow: 0 0 8px cyan, 0 0 16px cyan; }
+         input { padding: 8px; border-radius: 5px; border: none; margin-top: 10px; outline: none; }
+         button {
+             padding: 8px 15px;
+             margin-top: 10px;
+             border: none;
+             border-radius: 5px;
+             background: #00ffff;
+             color: black;
+             font-weight: bold;
+             cursor: pointer;
+             transition: background 0.3s, box-shadow 0.3s;
+         }
+         button:hover { background: #00cccc; box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+         .key-card img { max-width: 80px; margin-bottom: 10px; }
+         .card p { margin: 5px 0; }
+         .rank-info { 
+             text-align: left; 
+             background: rgba(255,255,255,0.1); 
+             padding: 10px; 
+             border-radius: 8px; 
+             margin: 10px 0; 
+         }
+         .payment-info { 
+             background: rgba(255,215,0,0.2); 
+             padding: 8px; 
+             border-radius: 5px; 
+             margin: 8px 0; 
+             border-left: 3px solid #FFD700;
+         }
+         .access-list { 
+             list-style: none; 
+             padding: 0; 
+         }
+         .access-list li { 
+             padding: 3px 0; 
+             border-bottom: 1px solid rgba(255,255,255,0.1); 
+         }
+         .access-list li:before { 
+             content: "✓ "; 
+             color: #00ff00; 
+             font-weight: bold; 
+         }
+     </style>
+ </head>
+ <body>
+     <header>
+         <div>
+             IP serwera: <b>SOON</b> | Regulamin serwera:
+             <a href="https://docs.google.com/document/d/1vZalBWjDzFagyqzuPkmCAGgCHab-D7CmoNpI0e-eh2Q/edit?usp=sharing" target="_blank">kliknij</a>
+         </div>
+         <div id="nickDisplay" onclick="showNickForm()">Wpisz swój nick</div>
+     </header>
+ 
+     <div id="home">
+         <h1>✨ Witaj na QDCraft.pl ✨</h1>
+         <div class="container">
+             <div class="card" onclick="goTo('rangi')">
+                 <h2 style="color: gold">Rangi</h2>
+                 <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
+             </div>
+             <div class="card" onclick="goTo('klucze')">
+                 <h2 class="blue">Klucze</h2>
+                 <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
+             </div>
+         </div>
+     </div>
+ 
+     <div id="nickForm" class="hidden">
+         <h2>Podaj swój nick Minecraft</h2>
+         <input type="text" id="nickInput" placeholder="Twój nick" autofocus>
+         <br>
+         <button onclick="saveNick()">Zapisz</button>
+     </div>
+ 
+     <div id="rangi" class="hidden">
+         <h1>Rangi</h1>
+         <div class="container">
+             <div class="card vip">
+                 <img src="img/VIP.png" alt="VIP">
+                 <h2 class="gold">VIP</h2>
+                 <p><strong>Ceny:</strong><br>30 dni: 5zł | 60 dni: 10zł | Na zawsze: 15zł</p>
+                 
+                 <div class="payment-info">
+                     <strong>💳 Płatność PayPal:</strong><br>
+                     Bezpieczna płatność przez PayPal<br>
+                     Automatyczna aktywacja rangi
+                 </div>
+ 
+                 <div class="rank-info">
+                     <strong>🎯 Dostęp VIP obejmuje:</strong>
+                     <ul class="access-list">
+                         <li>/kit vip - Zestaw VIP</li>
+                         <li>Kolorowy chat</li>
+                         <li>Priorytet wejścia na serwer</li>
+                         <li>Specjalne komendy VIP</li>
+                         <li>Dodatkowe sloty ekwipunku</li>
+                         <li>Dostęp do /fly na spawn</li>
+                     </ul>
+                 </div>
+             </div>
+ 
+             <div class="card svip">
+                 <img src="img/SVIP.png" alt="SVIP">
+                 <h2 class="svip">SVIP</h2>
+                 <p><strong>Ceny:</strong><br>30 dni: 10zł | 60 dni: 15zł | Na zawsze: 20zł</p>
+                 
+                 <div class="payment-info">
+                     <strong>💳 Płatność PayPal:</strong><br>
+                     Bezpieczna płatność przez PayPal<br>
+                     Automatyczna aktywacja rangi
+                 </div>
+ 
+                 <div class="rank-info">
+                     <strong>🎯 Dostęp SVIP obejmuje:</strong>
+                     <ul class="access-list">
+                         <li>/kit svip - Ulepszone zestawy</li>
+                         <li>Wszystko z VIP +</li>
+                         <li>/heal - Leczenie się</li>
+                         <li>/feed - Nakarmienie się</li>
+                         <li>Więcej slotów ekwipunku</li>
+                         <li>/fly na większej liczbie światów</li>
+                         <li>Dostęp do specjalnych aren PvP</li>
+                     </ul>
+                 </div>
+             </div>
+ 
+             <div class="card mvip">
+                 <img src="img/MVIP.png" alt="MVIP">
+                 <h2 class="mvip">MVIP</h2>
+                 <p><strong>Ceny:</strong><br>30 dni: 20zł | 60 dni: 25zł | Na zawsze: 30zł</p>
+                 
+                 <div class="payment-info">
+                     <strong>💳 Płatność PayPal:</strong><br>
+                     Bezpieczna płatność przez PayPal<br>
+                     Automatyczna aktywacja rangi
+                 </div>
+ 
+                 <div class="rank-info">
+                     <strong>🎯 Dostęp MVIP obejmuje:</strong>
+                     <ul class="access-list">
+                         <li>/kit mvip - Najlepsze zestawy</li>
+                         <li>Wszystko z SVIP +</li>
+                         <li>/tp do graczy</li>
+                         <li>/back - Powrót do lokalizacji</li>
+                         <li>Dostęp do /warp premium</li>
+                         <li>/enderchest - Prywatny schowek</li>
+                         <li>Bonus do doświadczenia x2</li>
+                         <li>Pierwszeństwo w eventach</li>
+                     </ul>
+                 </div>
+             </div>
+ 
+             <div class="card elita">
+                 <img src="img/ELITA.png" alt="ELITA">
+                 <h2 class="elita">ELITA</h2>
+                 <p><strong>Ceny:</strong><br>30 dni: 30zł | 60 dni: 35zł | Na zawsze: 40zł</p>
+                 
+                 <div class="payment-info">
+                     <strong>💳 Płatność PayPal:</strong><br>
+                     Bezpieczna płatność przez PayPal<br>
+                     Automatyczna aktywacja rangi
+                 </div>
+ 
+                 <div class="rank-info">
+                     <strong>🎯 Dostęp ELITA obejmuje:</strong>
+                     <ul class="access-list">
+                         <li>/kit elita - Ekskluzywne zestawy</li>
+                         <li>Wszystko z MVIP +</li>
+                         <li>/god - Nieśmiertelność (czasowa)</li>
+                         <li>/speed - Zwiększona prędkość</li>
+                         <li>Dostęp do prywatnych kopalni</li>
+                         <li>/workbench - Przenośny crafting</li>
+                         <li>Bonus do doświadczenia x3</li>
+                         <li>Specjalne eventy tylko dla Elity</li>
+                         <li>Możliwość tworzenia własnych warpów</li>
+                     </ul>
+                 </div>
+             </div>
+ 
+             <div class="card qd">
+                 <img src="img/QD.png" alt="QD">
+                 <h2 class="qd">QD</h2>
+                 <p><strong>Ceny:</strong><br>30 dni: 40zł | 60 dni: 45zł | Na zawsze: 50zł</p>
+                 
+                 <div class="payment-info">
+                     <strong>💳 Płatność PayPal:</strong><br>
+                     Bezpieczna płatność przez PayPal<br>
+                     Automatyczna aktywacja rangi
+                 </div>
+ 
+                 <div class="rank-info">
+                     <strong>🎯 Dostęp QD obejmuje:</strong>
+                     <ul class="access-list">
+                         <li>/kit qd - Legendarne zestawy</li>
+                         <li>Wszystko z ELITA +</li>
+                         <li>Pełen dostęp do komend administracyjnych</li>
+                         <li>/vanish - Niewidzialność</li>
+                         <li>Dostęp do beta funkcji serwera</li>
+                         <li>Prywatny kanał na Discordzie</li>
+                         <li>Bonus do doświadczenia x5</li>
+                         <li>Możliwość tworzenia eventów</li>
+                         <li>Specjalny prefix w grze i na forum</li>
+                         <li>Bezpłatne klucze premium co tydzień</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <button onclick="goHome()">⬅ Powrót</button>
+     </div>
+ 
+     <div id="klucze" class="hidden">
+         <h1>Klucze</h1>
+         <div class="container">
+             <div class="card key-card">
+                 <img src="img/klucz.png" alt="Zwykły">
+                 <h2>Zwykły</h2>
+                 <p>Klucz podstawowy do losowego skarbu w grze.</p>
+                 <div class="payment-info">
+                     <strong>Cena: 2zł</strong><br>
+                     Płatność PayPal dostępna
+                 </div>
+             </div>
+             <div class="card key-card">
+                 <img src="img/klucz_rzadki.png" alt="Rzadki">
+                 <h2>Rzadki</h2>
+                 <p>Klucz do rzadkich przedmiotów i bonusów.</p>
+                 <div class="payment-info">
+                     <strong>Cena: 5zł</strong><br>
+                     Płatność PayPal dostępna
+                 </div>
+             </div>
+             <div class="card key-card">
+                 <img src="img/klucz_epicki.png" alt="Epicki">
+                 <h2>Epicki</h2>
+                 <p>Klucz do epickich nagród i wyjątkowych itemów.</p>
+                 <div class="payment-info">
+                     <strong>Cena: 7zł</strong><br>
+                     Płatność PayPal dostępna
+                 </div>
+             </div>
+             <div class="card key-card">
+                 <img src="img/klucz_legendarny.png" alt="Legendarny">
+                 <h2>Legendarny</h2>
+                 <p>Najpotężniejszy klucz dający legendarne przedmioty.</p>
+                 <div class="payment-info">
+                     <strong>Cena: 10zł</strong><br>
+                     Płatność PayPal dostępna
+                 </div>
+             </div>
+             <div class="card key-card">
+                 <img src="img/klucz_qd.png" alt="QD">
+                 <h2>QD</h2>
+                 <p>Specjalny klucz premium serwera QDCraft.</p>
+                 <div class="payment-info">
+                     <strong>Cena: 15zł</strong><br>
+                     Płatność PayPal dostępna
+                 </div>
+             </div>
+         </div>
+         <button onclick="goHome()">⬅ Powrót</button>
+     </div>
+ 
+     <footer>
+         Produkty zakupisz na:
+         <a href="https://discord.com/invite/8TcPmSdZWs" target="_blank">dc.gg/qdcraft.pl</a>
+     </footer>
+ 
+     <script>
+         let currentNick = localStorage.getItem('mcNick') || "";
+         updateNickDisplay();
+ 
+         function showNickForm(){
+             hideAll();
+             document.getElementById('nickForm').classList.remove('hidden');
+             document.getElementById('nickInput').focus();
+         }
+ 
+         function saveNick(){
+             const val = document.getElementById('nickInput').value.trim();
+             if(val){
+                 currentNick = val;
+                 localStorage.setItem('mcNick', val);
+                 updateNickDisplay();
+                 goHome();
+             }
+         }
+ 
+         function updateNickDisplay(){
+             const disp = document.getElementById('nickDisplay');
+             if(currentNick){
+                 disp.textContent = currentNick;
+                 document.querySelectorAll('.nick').forEach(el => el.textContent = currentNick);
+             } else {
+                 disp.textContent = "Wpisz swój nick";
+             }
+         }
+ 
+         function hideAll(){
+             document.getElementById('home').classList.add('hidden');
+             document.getElementById('nickForm').classList.add('hidden');
+             document.getElementById('rangi').classList.add('hidden');
+             document.getElementById('klucze').classList.add('hidden');
+         }
+ 
+         function goHome(){
+             hideAll();
+             document.getElementById('home').classList.remove('hidden');
+         }
+ 
+         function goTo(section){
+             hideAll();
+             document.getElementById(section).classList.remove('hidden');
+         }
+     </script>
+ </body>
  </html>
