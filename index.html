@@ -143,15 +143,7 @@
         <div class="container">
             <div class="card" onclick="goTo('survival')">
                 <h2 class="green">🌿 Tryb Survival</h2>
-                <p class="green">Poznaj świat Survival!<br>Rangi, funkcje i możliwości.</p>
-            </div>
-            <div class="card" onclick="goTo('rangi')">
-                <h2 style="color: gold">Rangi</h2>
-                <p style="color: gold">Rangi serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
-            </div>
-            <div class="card" onclick="goTo('klucze')">
-                <h2 class="blue">Klucze</h2>
-                <p class="blue">Klucze serwerowe.<br>Kliknij, aby zobaczyć ofertę.</p>
+                <p class="green">Poznaj świat Survival!<br>Rangi, klucze i wszystkie funkcje.</p>
             </div>
         </div>
     </div>
@@ -354,126 +346,26 @@
     <div id="survival" class="hidden">
         <h1>🌿 Tryb Survival</h1>
         <div class="container">
-            <div class="card" style="background: rgba(34,139,34,0.8);">
-                <h2 class="green">🏠 Informacje Podstawowe</h2>
+            <div class="card" onclick="goTo('rangi')">
+                <h2 style="color: gold">⭐ Rangi Survival</h2>
+                <p style="color: gold">Odkryj wszystkie rangi survival!<br>VIP, SVIP, MVIP, ELITA, QD</p>
                 <div class="survival-feature">
-                    <strong>🗺️ Mapa Survival:</strong><br>
-                    Ogromny świat do eksploracji bez limitów!
-                </div>
-                <div class="survival-feature">
-                    <strong>🏘️ System Działek:</strong><br>
-                    Zabezpiecz swoje budowle przed grieферами
-                </div>
-                <div class="survival-feature">
-                    <strong>💰 Ekonomia:</strong><br>
-                    Handluj, zarabiaj i rozwijaj swoją bazę
-                </div>
-                <div class="survival-feature">
-                    <strong>🎯 Eventy:</strong><br>
-                    Regularne wydarzenia z nagrodami
+                    <strong>🎯 Co oferujemy:</strong><br>
+                    • Specjalne komendy dla każdej rangi<br>
+                    • Dodatkowe działki i domy<br>
+                    • Bonusy XP i ekskluzywne kity<br>
+                    • Płatność PayPal dostępna
                 </div>
             </div>
-
-            <div class="card" style="background: rgba(255,165,0,0.8);">
-                <h2 style="color: #FFD700;">⚔️ PvP & Areny</h2>
+            <div class="card" onclick="goTo('klucze')">
+                <h2 class="blue">🗝️ Klucze Survival</h2>
+                <p class="blue">Specjalne klucze dla trybu survival!<br>Odkryj skarby i nagrody</p>
                 <div class="survival-feature">
-                    <strong>🗡️ Areny PvP:</strong><br>
-                    Walcz z innymi graczami w bezpiecznych strefach
-                </div>
-                <div class="survival-feature">
-                    <strong>🏆 Rankingi:</strong><br>
-                    Zdobywaj punkty i wspinaj się w rankingach
-                </div>
-                <div class="survival-feature">
-                    <strong>💎 Nagrody:</strong><br>
-                    Wygraj cenne przedmioty za zwycięstwa
-                </div>
-            </div>
-
-            <div class="card" style="background: rgba(138,43,226,0.8);">
-                <h2 class="elita">🔧 System Rang Survival</h2>
-                <div class="survival-feature">
-                    <strong>🟢 Gracz:</strong> Podstawowe komendy survival
-                </div>
-                <div class="survival-feature">
-                    <strong>🔵 Doświadczony:</strong> Dodatkowe działki + /back
-                </div>
-                <div class="survival-feature">
-                    <strong>🟡 Ekspert:</strong> /sethome (3 domy) + /tpa
-                </div>
-                <div class="survival-feature">
-                    <strong>🟠 Mistrz:</strong> /fly w własnych działkach + sklepy
-                </div>
-                <div class="survival-feature">
-                    <strong>🔴 Legenda:</strong> Wszystkie komendy + bonusy XP
-                </div>
-                <div class="payment-info">
-                    <strong>💳 Awanse rang:</strong><br>
-                    Płatność PayPal lub punkty aktywności
-                </div>
-            </div>
-
-            <div class="card" style="background: rgba(0,188,212,0.8);">
-                <h2 class="qd">🏭 System Ekonomiczny</h2>
-                <div class="survival-feature">
-                    <strong>🏪 Sklepy Graczy:</strong><br>
-                    Twórz własne sklepy i handluj
-                </div>
-                <div class="survival-feature">
-                    <strong>💵 QDCoiny:</strong><br>
-                    Oficjalna waluta serwera
-                </div>
-                <div class="survival-feature">
-                    <strong>📈 Aukcje:</strong><br>
-                    System aukcji przedmiotów
-                </div>
-                <div class="survival-feature">
-                    <strong>🏦 Bank:</strong><br>
-                    Bezpieczne przechowywanie pieniędzy
-                </div>
-            </div>
-
-            <div class="card" style="background: rgba(76,175,80,0.8);">
-                <h2 class="mvip">🎮 Funkcje Specjalne</h2>
-                <div class="survival-feature">
-                    <strong>🏠 /sethome:</strong> Ustaw swoje domy (do 5)
-                </div>
-                <div class="survival-feature">
-                    <strong>📍 /tpa:</strong> Teleportuj się do graczy
-                </div>
-                <div class="survival-feature">
-                    <strong>🛡️ Działki:</strong> Ochroń swoją bazę
-                </div>
-                <div class="survival-feature">
-                    <strong>🎒 /backpack:</strong> Dodatkowy ekwipunek
-                </div>
-                <div class="survival-feature">
-                    <strong>⭐ McMMO:</strong> System umiejętności
-                </div>
-                <div class="survival-feature">
-                    <strong>🐾 Zwierzęta:</strong> Hodowla i ochrona zwierząt
-                </div>
-            </div>
-
-            <div class="card" style="background: rgba(233,30,99,0.8);">
-                <h2 class="gold">🎁 VIP na Survival</h2>
-                <div class="rank-info">
-                    <strong>🌟 Bonusy VIP w trybie Survival:</strong>
-                    <ul class="access-list">
-                        <li>Dodatkowe działki (2x więcej)</li>
-                        <li>Więcej domów (/sethome do 10)</li>
-                        <li>/fly w swoich działkach</li>
-                        <li>Priorytet w kolejkach</li>
-                        <li>Kolorowy nick nad głową</li>
-                        <li>Dostęp do VIP kopalni</li>
-                        <li>Bonus XP z McMMO</li>
-                        <li>Darmowe kity co 12h</li>
-                    </ul>
-                </div>
-                <div class="payment-info">
-                    <strong>💳 Kup VIP dla Survival:</strong><br>
-                    Te same ceny co rangi globalne<br>
-                    Działają na wszystkich trybach!
+                    <strong>🎁 Dostępne klucze:</strong><br>
+                    • Klucz Zwykły, Rzadki, Epicki<br>
+                    • Klucz Legendarny i QD<br>
+                    • Ekskluzywne przedmioty survival<br>
+                    • Ceny od 2zł do 15zł
                 </div>
             </div>
         </div>
